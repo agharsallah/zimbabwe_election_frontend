@@ -3,6 +3,12 @@ module.exports = {
         english:'English',
         french:'Français'
     },
+    navbar:{
+        home:'Home',
+        about:'About',
+        data:'Data',
+        contact:'Contact Us',
+    },
     map:{
         hover:'Hover Over the map for more info',
         loading:'Loading Map',

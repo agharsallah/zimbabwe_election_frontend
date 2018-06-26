@@ -1,49 +1,44 @@
 import React, { Component } from 'react';
 import Translate from 'react-translate-component';
-import Menu from '../menu/Menu';
-import Card from './Card';
-import counterpart  from 'counterpart';
+import Navbar from '../shared/Navbar';
+import counterpart from 'counterpart';
+import { Divider } from 'material-ui';
 
 export default class RootHome extends Component {
   constructor(props) {
     super(props);
-    this.state = { menuStyle: true, mapZIndex: 150 }
-  }
-  openMenu() {
-    //this is trigered wheen the user clicks the menu icon
-    let menuStyle = !this.state.menuStyle
-
-    let mapZIndex;
-    menuStyle == true ? mapZIndex = 150 : mapZIndex = 100;
-    this.setState({ menuStyle, mapZIndex });
+    this.state = {}
   }
 
   render() {
-    let menuStyle = ''; this.state.menuStyle ? menuStyle = '' : menuStyle = 'nav-active'
-    //let { chosenViz } = this.state;
     const TITLE = <Translate type='text' content='home.title' />//Municipal election data
     /* translation 1st Card */
     const TITLECARD = <Translate type='text' content='card.title1' />//Presidential results 201
     const DESC_CARD = <Translate type='text' content='card.description1' />//desc
 
     return (
-      <section className={menuStyle} >
-        <Menu activeViz='activeLink'
-          activeAbout=''
-          activeContact=''
-          openMenu={this.openMenu.bind(this)}
-        />
-        <div className="site-content">
-          <h1 className="site-content__headline">{TITLE}</h1>
+      <div>
+        <Navbar home='active' about='' data='' contact='' />
+
+        <div className="page-title parallax parallax2">
+          <div className="title-heading">
+            <div className="container">
+              <div className="row">
+                <div className="col-md-12">
+                  <div className="page-title-heading">
+                    <h1 className="h1-title">Zimbabwe election </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="attribution">
+            <h6 className="h5-title">AP Photo- Ben Curtis </h6>
+          </div>
         </div>
 
-        <div className='container'>
-          <div className='row col-md-12' style={{zIndex:this.state.mapZIndex}} >
-            <Card img="card1.jpg" redirectLink="/" title={TITLECARD} description={DESC_CARD} />
-          </div>
-          
-        </div>
-      </section>
+
+      </div>
     );
   }
 }
