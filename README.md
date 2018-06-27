@@ -1,5 +1,5 @@
 # Zimbabwe election
-[![Join the chat at https://gitter.im/](https://badges.gitter.im/mozilla/global-sprint-2017.svg)](https://gitter.im/)
+[![Join the chat at https://gitter.im/Election-data/Zimbabwe_election_data](https://badges.gitter.im/mozilla/global-sprint-2017.svg)](https://gitter.im/Election-data/Zimbabwe_election_data)
 
 ## Welcome !
 Zimbabwe-Election is an initiative to centralize election related data through interactive viqualization and cartography. <br/>
@@ -13,7 +13,7 @@ You're welcome to add comments, questions and suggestions. Feel free to open an 
 
 ## Contributing
 
-Thanks for your interest in contributing to Zimbabwe election data ! you can start by openening an issue or send me an [email](mailto:AGharsallah@DemocracyInternational.com?subject=zimbabwe_election_data)
+Thanks for your interest in contributing to Zimbabwe election data ! you can start by openening an issue, say hi on [gitter](https://gitter.im/Election-data/Zimbabwe_election_data)  or send me an [email](mailto:AGharsallah@DemocracyInternational.com?subject=zimbabwe_election_data)
 
 ## Participation Guidelines
 

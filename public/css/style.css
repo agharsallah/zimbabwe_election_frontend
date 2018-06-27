@@ -1511,11 +1511,11 @@ article.main-post .featured-post {
 
 article.main-post .featured-post a img {
 	width: 100%;
-	-webkit-transition: all 0.3s ease-in-out;
+	/* -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
        -ms-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
-           transition: all 0.3s ease-in-out;
+           transition: all 0.3s ease-in-out; */
 }
 
 article.main-post:hover .featured-post a img {
@@ -1541,9 +1541,9 @@ article.main-post .entry-content .date {
            transition: all 0.3s ease-in-out;
 }
 
-article.main-post:hover .entry-content .date {
+/* article.main-post:hover .entry-content .date {
 	background-color: #252525;
-}
+} */
 
 article.main-post .entry-content h3 {
 	margin: 21px 0 18px;

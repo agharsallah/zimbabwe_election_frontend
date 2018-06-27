@@ -8,28 +8,34 @@ export default class Card extends Component {
 
     render() {
         const imageLink = "/img/card/" + this.props.img
-        const { redirectLink, title, description } = this.props
+        const { redirectLink, title, description, ribbon } = this.props
         const READMORE = <Translate type="text" content="home.readmore" />//readmore
         return (
-            <div className="col-xs-12 col-sm-4">
-
-                <div className="card">
-                    <Link to={redirectLink} className="img-card" > <img src={imageLink} /></Link>
-
-                    <div className="card-content">
-                        <h4 className="card-title">
+            <div className="one-half">
+                <article className="main-post style2">
+                    <div className="featured-post">
+                        <Link to={redirectLink} >
+                            <img src={imageLink} alt={description} />
+                        </Link>
+                    </div>
+                    <div className="entry-content">
+                        <div className="date">
+                            {ribbon}
+                        </div>
+                        <h3>
                             <Link to={redirectLink} >{title}</Link>
-                        </h4>
-                        <p className="">
+                        </h3>
+                        <p>
                             {description}
                         </p>
                     </div>
-
                     <div className="card-read-more">
-                        <Link to={redirectLink} className="btn btn-link btn-block" >{READMORE}</Link>
-                    </div>
+                    <Link to={redirectLink} className="btn btn-link btn-block" style={{color:'#5cc06b'}} >{READMORE}</Link>
                 </div>
+
+                </article>
             </div>
+            
         );
     }
 }

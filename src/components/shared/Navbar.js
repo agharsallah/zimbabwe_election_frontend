@@ -46,16 +46,16 @@ export default class Navbar extends Component {
 							<nav id="mainnav" className="mainnav">
 								<ul className="menu">
 									<li className={this.props.home}>
-                                        <Link to="/" title="">HOME</Link>
+                                        <Link to="/" title="">{HOME}</Link>
                                     </li>
                                     <li className={this.props.data}>
-                                        <Link to="/data" title="">ABOUT</Link>
+                                        <Link to="/data" title="">{ABOUT}</Link>
                                     </li>
                                     <li className={this.props.about} >
-										<Link to="/about" title="">DATA</Link>
+										<Link to="/about" title="">{DATA}</Link>
 									</li>
                                     <li className={this.props.contact}>
-                                        <Link to="/contact" title="">CONTACT</Link>
+                                        <Link to="/contact" title="">{CONTACT}</Link>
                                        {/*  <ul className="sub-menu">
                                             <li><a href="contact-v1.html" title="">Contact 01</a></li>
                                         </ul> */}

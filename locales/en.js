@@ -9,6 +9,13 @@ module.exports = {
         data:'Data',
         contact:'Contact Us',
     },
+    sidebar_home:{
+        our_vis:'Visualizations',
+        all:'All',
+        presidential:'Presidential election',
+        other:'Other',
+
+    },
     map:{
         hover:'Hover Over the map for more info',
         loading:'Loading Map',
