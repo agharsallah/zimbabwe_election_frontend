@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Translate from 'react-translate-component';
 import Navbar from '../shared/Navbar';
+import Footer from '../shared/Footer';
 import Card from './card' ;
 
 export default class RootHome extends Component {
@@ -77,7 +78,7 @@ export default class RootHome extends Component {
           </div>
         </section>
 
-
+        <Footer/>
       </div>
     );
   }
