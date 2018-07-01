@@ -33,11 +33,12 @@ export default class Navbar extends Component {
 			<div className="container">
 				<div className="row">
 					<div className="header-wrap">
-						{/* <div id="logo" className="logo">
-							<a href="index.html" title="">
-								<img src="images/logo.png" alt="logo Finance Business"/>
-							</a>
-						</div> */}
+						 <div id="logo" className="logo">
+							<Link style={{textDecoration: 'none'}} to="/" title="">
+                                {/* <img src="images/logo.png" alt="logo Election Data"/> */}
+                                <h3 style={{color:'#18ba60'}} >Zimbabwe Election Data</h3> 
+							</Link>
+						</div> 
 						
 						<div className="nav-wrap">
 							<div className="btn-menu">

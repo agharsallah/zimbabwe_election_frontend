@@ -110,7 +110,7 @@
 	}
 
 	button,
-	input,
+	/* input, */
 	select,
 	textarea {
 		font-size: 100%;
@@ -123,11 +123,11 @@
 	}
 
 	button,
-	input {
+/* 	input {
 		line-height: normal;
-	}
+	} */
 
-	input,
+	/* input, */
 	textarea {
 		background-image: -webkit-linear-gradient(hsla(0,0%,100%,0), hsla(0,0%,100%,0)); /* Removing the inner shadow, rounded corners on iOS inputs */
 	}
@@ -227,9 +227,9 @@ button {
 }
 
 button,
-input[type="button"],
+/* input[type="button"],
 input[type="reset"],
-input[type="submit"] {		
+input[type="submit"] */ {		
     display: inline-block;
     color: #fff;
     padding: 0px 29px 0 30px;
@@ -280,7 +280,7 @@ button.search-submit-form {
 
 select,
 textarea,
-input[type="text"],
+/* input[type="text"],
 input[type="password"],
 input[type="datetime"],
 input[type="datetime-local"],
@@ -293,7 +293,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"],
-input[type="email"] {	
+input[type="email"] */ {	
 	position: relative;
     display: block;
     width: 100%;
@@ -312,12 +312,12 @@ input[type="email"] {
 	        transition: all 0.3s ease-in-out;
 }
 
-input[type="search"] {
+/* input[type="search"] {
     width: 250px;  
     margin-bottom: 0px;
     border-radius: 0px;
     background-color: #ffffff;
-}
+} */
 
 
 textarea:focus,
@@ -347,18 +347,18 @@ textarea {
     height: 170px;
 }
 
-input[type="checkbox"] {
+i/* nput[type="checkbox"] {
 	display: inline;
-}
+} */
 
 textarea:-moz-placeholder,
 textarea::-moz-placeholder,
-input:-moz-placeholder,
+/* input:-moz-placeholder,
 input::-moz-placeholder {		
 	color: #555;
 	opacity: 1;
 }
-
+ */
 input:-ms-input-placeholder {
 	color: #555;
 }
@@ -371,7 +371,7 @@ input::-webkit-input-placeholder {
 
 /* bootstrap resetting elements */
 
-textarea, 
+/* textarea, 
 input[type="text"],
 input[type="submit"],
 input[type="password"], 
@@ -400,7 +400,7 @@ input[type="color"],
 	        box-shadow: none;
 	color: #000;
 }
-
+ */
 blockquote {
 	padding-left: 71px;
 	position: relative;
@@ -426,7 +426,7 @@ blockquote p {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-weight: 500;
 	color: #000002;
 }
@@ -780,7 +780,7 @@ ul.flat-social li {
 }
 
 .logo {
-	margin-top: 21px;
+	margin-top: 10px;
 	float: left;
 }
 

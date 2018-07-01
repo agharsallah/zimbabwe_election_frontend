@@ -13,7 +13,7 @@ export default class Card extends Component {
         return (
             <div className="one-half">
                 <article className="main-post style2">
-                    <div className="featured-post">
+                    <div className="featured-post" style={{maxHeight:'225px'}}>
                         <Link to={redirectLink} >
                             <img src={imageLink} alt={description} />
                         </Link>

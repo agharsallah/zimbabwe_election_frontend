@@ -1,6 +1,6 @@
 module.exports = {
 
-	'apiUrl':'',	
+	'apiUrl':'http://localhost:3030',	
 	'initShape':{
 		'type': 'FeatureCollection',
 		'crs': { 'type': 'name', 'properties': { 'name': 'urn:ogc:def:crs:OGC:1.3:CRS84' } },

@@ -43,7 +43,7 @@ export default class RootHome extends Component {
             </div>
           </div>
           <div className="attribution">
-            <h6 className="h5-title">AP Photo- Ben Curtis </h6>
+            <h6 className="h5-title">AP photo by Ben Curtis </h6>
           </div>
         </div>
 
@@ -65,10 +65,9 @@ export default class RootHome extends Component {
 
                 <div className="services-content-tab">
                   <div className="content-inner">
-                  <Card img="test.jpg" redirectLink="/pres13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 13' />
-                  <Card img="test.jpg" redirectLink="/pres13" title='other' description={DESC_CARD1} ribbon='other' />
-                  <Card img="test.jpg" redirectLink="/pres13" title='pres invalid votes' description={DESC_CARD1} ribbon='presidential 13' />
-
+                  <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 13' />
+                  <Card img="test.jpg" redirectLink="/pres-res-13" title='Invalid votes' description={DESC_CARD1} ribbon='presidential 13' />
+                  <Card img="test.jpg" redirectLink="/pres-res-13" title='other' description={DESC_CARD1} ribbon='other' />
   
                   </div>
                 </div>
