@@ -12,7 +12,7 @@ export default class _RootPresRes13 extends Component {
     super(props);
     this.state = {
       VOTES_value: '2,111,181', worstResultValue: '31,773 in Bulawayo', BEST_RES_value: '327,455 in Mashonaland Central', partyName: 'Mugabe Robert Gabriel -ZANU PF-'
-      , partyToSelect: 'ZANU_PF', gradesDistrict: [0, 40, 60], gradesProvince: [0, 40, 65], shapeType: 'normalShape'
+      , partyToSelect: 'ZANU_PF', gradesDistrict: [0, 40, 60], gradesProvince: [0, 40, 65],gradesWard: [0, 50, 70], shapeType: 'normalShape'
     }
   }
 
@@ -32,7 +32,8 @@ export default class _RootPresRes13 extends Component {
       partyName: dataString[3],//Mugabe Robert -ZANU_PF-
       partyToSelect: dataString[4],//ZANU_PF
       gradesDistrict: JSON.parse(dataString[5]),//[0, 20, 30]
-      gradesProvince: JSON.parse(dataString[6])//[0, 40, 65]
+      gradesProvince: JSON.parse(dataString[6]),//[0, 40, 65]
+      gradesWard: JSON.parse(dataString[7])//[0, 40, 65]
     });
   }
 
@@ -41,7 +42,7 @@ export default class _RootPresRes13 extends Component {
     const VOTES = <Translate type='text' content='partySheet.VOTES' />//Total Votes
     const CHAIRS = <Translate type='text' content='partySheet.CHAIRS' />//Total chairs
     const BEST_RES = <Translate type='text' content='partySheet.BEST_RES' />//Highest seats number
-    const { VOTES_value, worstResultValue, BEST_RES_value, RUNNED_MUN_value, partyName, partyToSelect, gradesDistrict, gradesProvince } = this.state;
+    const { VOTES_value, worstResultValue, BEST_RES_value, gradesWard, partyName, partyToSelect, gradesDistrict, gradesProvince } = this.state;
     return (
       <div>
       <Navbar home='' about='' data='' contact='' />
@@ -57,12 +58,12 @@ export default class _RootPresRes13 extends Component {
                 <FormGroup controlId="typeOfAssoc" onChange={this.handleNgoSector.bind(this)}  >
                   <FormControl componentClass="select" placeholder="All" defaultValue={0}>
                     <option value="" disabled >Select</option>
-                    <option value="2,111,181**31,773 - 23% in Bulawayo**327,455 - 84% in Mashonaland Central**Mugabe Robert -ZANU_PF-**ZANU_PF**[0, 40, 60]**[0, 40, 65]">Mugabe Robert Gabriel (ZANU PF)</option>
-                    <option value="25,427** 843 - 0.18% in Harare**2,776 - 1.7% in Matabeleland South **Dabengwa Dumiso -ZAPU-**ZAPU**[0, 0.5, 1]**[0,0.7,2]">Dabengwa Dumiso (ZAPU) </option>
-                    <option value="9,943**159 - 0.08% in Harare**1,166 - 0.7% in Matabeleland South**Mukwazhe Munodei -ZDP-**ZDP**[0, 0.2, 0.5]**[0,0.2,0.5]">Mukwazhe Munodei Kisinoti (ZDP) </option>
-                    <option value="92,701**3,525 - 0.9% in Mashonaland Central**12,726 - 7.9% in Matabeleland South**Ncube Welshman -MDC-**MDC**[0,2.5, 4]**[0,1.5,5]">Ncube Welshman (MDC)</option>
-                    <option value="1,173,287**46,533 - 12% in Mashonaland Central**89,207 - 66% in Bulawyo**Tsvangirai Morgan -MDC_T-**MDC_T**[0, 25, 40]**[0, 25, 40]">Tsvangirai Morgan (MDCT)</option>
-                  </FormControl>
+                    <option value="2,111,181**31,773 - 23% in Bulawayo**327,455 - 84% in Mashonaland Central**Mugabe Robert -ZANU_PF-**ZANU_PF**[0, 40, 60]**[0, 40, 65]**[0, 50, 70]">Mugabe Robert Gabriel (ZANU PF)</option>
+                    <option value="1,173,287**46,533 - 12% in Mashonaland Central**89,207 - 66% in Bulawyo**Tsvangirai Morgan -MDC_T-**MDC_T**[0, 25, 40]**[0, 25, 40]**[0, 20, 50]">Tsvangirai Morgan (MDCT)</option>
+                    <option value="92,701**3,525 - 0.9% in Mashonaland Central**12,726 - 7.9% in Matabeleland South**Ncube Welshman -MDC-**MDC**[0,2.5, 4]**[0,1.5,5]**[0, 2.5, 5]">Ncube Welshman (MDC)</option>
+                    <option value="25,427** 843 - 0.18% in Harare**2,776 - 1.7% in Matabeleland South **Dabengwa Dumiso -ZAPU-**ZAPU**[0, 0.5, 1]**[0,0.7,2]**[0, 0.5, 1]">Dabengwa Dumiso (ZAPU) </option>
+                    <option value="9,943**159 - 0.08% in Harare**1,166 - 0.7% in Matabeleland South**Mukwazhe Munodei -ZDP-**ZDP**[0, 0.2, 0.5]**[0,0.2,0.5]**[0, 0.5, 1]">Mukwazhe Munodei Kisinoti (ZDP) </option>
+                    </FormControl>
                 </FormGroup>
               </div>
             </div>
@@ -93,7 +94,7 @@ export default class _RootPresRes13 extends Component {
                 </div>
               </div>
             </div>
-            <PartyMap partyToSelect={partyToSelect} gradesDistrict={gradesDistrict} gradesProvince={gradesProvince} partyName={partyName} />
+            <PartyMap partyToSelect={partyToSelect} gradesWard={gradesWard} gradesDistrict={gradesDistrict} gradesProvince={gradesProvince} partyName={partyName} />
           </section>
 
         </div>

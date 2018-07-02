@@ -5,7 +5,6 @@ import axios from 'axios';
 import config from '../../config'
 import Control from 'react-leaflet-control';
 import MapKey from './MapKey';
-import { FormGroup, FormControl, Form, Radio } from 'react-bootstrap';
 
 import Translate from 'react-translate-component';
 
@@ -13,15 +12,36 @@ export default class PartyMap extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      shapeIsLoaded: false, shape: config.initShape, shapeDistrict: config.initShape, shapeProvince: config.initShape, key: 1,
-      filter: 'perDistrict', checked: [true, false],
-      keyTitle: 'ZANU_PF per votes percentage', partyName: 'ZANU PF',partyToSelect:'ZANU_PF',
+      shapeIsLoaded: false, shapeWard: config.initShape, shapeDistrict: config.initShape, shapeProvince: config.initShape, key: 1,
+      filter: 'perWard', checked: [true, false, false],
+      keyTitle: 'ZANU_PF per votes percentage', partyName: 'ZANU PF', partyToSelect: 'ZANU_PF',
       ProvinceName: '', districtName: '', resultsPercentage: '', resultsNumber: '', percentageSign: ' %',
       maxFilter: 100, minFilter: 0, activeFilter: 'none', grades: []
     }
   }
 
   componentWillMount() {
+    let qString0 = `${config.apiUrl}/api/shape/zim_presidential2013_ward`;
+    console.log(qString);
+    axios({
+      method: 'get',
+      url: qString0,
+      headers: {
+        'name': 'Isie',
+        'password': 'Isie@ndDi',
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+
+    })
+      .then(response => {
+        console.log(response);
+        this.setState({ shapeWard: JSON.parse(response.data.data), shapeIsLoaded: true });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
     let qString = `${config.apiUrl}/api/shape/zim_presidential2013_district`;
     console.log(qString);
     axios({
@@ -37,7 +57,7 @@ export default class PartyMap extends Component {
     })
       .then(response => {
         console.log(response);
-        this.setState({ shapeDistrict: JSON.parse(response.data.data), shape: JSON.parse(response.data.data), shapeIsLoaded: true });
+        this.setState({ shapeDistrict: JSON.parse(response.data.data) });
       })
       .catch(function (error) {
         console.log(error);
@@ -62,8 +82,8 @@ export default class PartyMap extends Component {
         console.log(error);
       });
     //don't know why did this cause u can use props directly ????- it's a sort of initialization
-    if (this.state.filter == 'perDistrict') {
-      this.setState({ grades: this.props.gradesDistrict, partyName: this.props.partyName,partyToSelect:this.props.partyToSelect });
+    if (this.state.filter == 'perWard') {
+      this.setState({ grades: this.props.gradesWard, partyName: this.props.partyName, partyToSelect: this.props.partyToSelect });
     }
   }
 
@@ -72,14 +92,14 @@ export default class PartyMap extends Component {
     // this is done so that  whenever user changes the select option We reset all properties to initial
     //we also set back the filter values to default 
     /* if (nextProps.partyToSelect != this.state.partyToSelect) { */
-      console.log('nnnnextProps.gradesDistrict', nextProps.gradesDistrict);
-      this.setState({
-        partyName: nextProps.partyName, keyTitle: nextProps.partyToSelect+' per votes percentage', filter: 'perDistrict',
-        partyToSelect:nextProps.partyToSelect,
-        grades: nextProps.gradesDistrict, checked: [true, false], minFilter: 0, maxFilter: 100, activeFilter: 'none'
+    console.log('nnnnextProps.gradesDistrict', nextProps.gradesDistrict);
+    this.setState({
+      partyName: nextProps.partyName, keyTitle: nextProps.partyToSelect + ' per votes percentage', filter: 'perWard',
+      partyToSelect: nextProps.partyToSelect,
+      grades: nextProps.gradesWard, checked: [true, false, false], minFilter: 0, maxFilter: 100, activeFilter: 'none'
 
-      });
-   /*  } */
+    });
+    /*  } */
 
   }
 
@@ -144,8 +164,9 @@ export default class PartyMap extends Component {
 
     let resultsPercentage = ((parseInt(property[this.state.partyToSelect]) * 100) / parseInt(property.total_votes)).toFixed(2);
     this.setState({
-      districtName: property.NAME1, destroy: false,
-      provinceName: property.NAME2 !== undefined ? ' - ' + property.NAME2 : '',
+      districtName: property.NAME1 !== undefined ?  property.NAME1+' - ' : '', 
+      destroy: false,
+      provinceName: property.NAME2 !== undefined ?  property.NAME2 : '',
       resultsPercentage,
       resultsNumber: property[this.state.partyToSelect]
     });
@@ -166,7 +187,7 @@ export default class PartyMap extends Component {
   }
 
   handleRadioFilter(filter, e) {
-    let checked = [false, false];
+    let checked = [false, false, false];
     checked[parseInt(e.target.value)] = true;
     //when user clicks on the radiobutton we update the mapkey,grades and set back the filter values to default
     this.setState({ filter, checked, activeFilter: 'none' });
@@ -174,6 +195,8 @@ export default class PartyMap extends Component {
       this.setState({ grades: this.props.gradesDistrict, minFilter: 0, maxFilter: 100, activeFilter: 'none' });
     } else if (filter == 'perProvince') {
       this.setState({ grades: this.props.gradesProvince, minFilter: 0, maxFilter: 100, activeFilter: 'none' });
+    } else {
+      this.setState({ grades: this.props.gradesWard, minFilter: 0, maxFilter: 100, activeFilter: 'none' });
     }
 
   }
@@ -192,68 +215,92 @@ export default class PartyMap extends Component {
     const VOTES_PER = <Translate type='text' content='partySheet.VOTES_PER' />//votes percentage 
     const VOTES_NUMBER = <Translate type='text' content='partySheet.Votes_Number' />//votes number 
 
+    const WARD_RES = <Translate type='text' content='partySheet.ward_res' />//Results per ward
     const DISTRICT_RES = <Translate type='text' content='partySheet.district_res' />//Results per district
     const PROVINCE_RES = <Translate type='text' content='partySheet.province_res' />//Results per Province
 
     const FILTER_RES = <Translate type='text' content='partySheet.filter_Result' />//Filter result between :
-    const FILTER_RES_MUN = <Translate type='text' content='partySheet.filter_Result_Mun' />//Filter result per Mun. Type  :
     const CONTROL = <Translate type='text' content='partySheet.control_map' />//Control the map
 
     const HOVER = <Translate type='text' content='map.hover' />//Hover Over the map for more info
     const LOADING = <Translate type='text' content='map.loading' />//Loading Map
     return (
       <div className="topMap">
-        {this.state.shapeIsLoaded ? <Map maxZoom={9} center={[-18.9, 28]} keyboard={false} scrollWheelZoom={false} zoom={7} minZoom={5} style={{ height: "100vh", width: "100%", position: "relative" }}>
+        {this.state.shapeIsLoaded ? <Map maxZoom={8} center={[-18.9, 28]} keyboard={false} scrollWheelZoom={false} zoom={7} minZoom={5} style={{ height: "100vh", width: "100%", position: "relative" }}>
           <TileLayer
             url='https://api.mapbox.com/styles/v1/hunter-x/cixhpey8700q12pnwg584603g/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiaHVudGVyLXgiLCJhIjoiY2l2OXhqMHJrMDAxcDJ1cGd5YzM2bHlydSJ9.jJxP2PKCIUrgdIXjf-RzlA'
             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> '
           />
-          {this.state.filter == 'perDistrict' ?
-            <GeoJSON
-              key={this.state.partyToSelect + this.props.grades + this.state.filter}
-              data={this.state.shapeDistrict}
-              style={this.style.bind(this)}
-              onEachFeature={
-                (feature, layer) => {
-                  layer.on({ mouseover: this.highlightFeature.bind(this) });
-                  layer.on({ mouseout: this.resetFeature.bind(this) });
+          {
+            this.state.filter == 'perWard' ?
+              <GeoJSON
+                key={this.state.partyToSelect + this.props.grades + this.state.filter}
+                data={this.state.shapeWard}
+                style={this.style.bind(this)}
+                onEachFeature={
+                  (feature, layer) => {
+                    layer.on({ mouseover: this.highlightFeature.bind(this) });
+                    layer.on({ mouseout: this.resetFeature.bind(this) });
+                  }
                 }
-              }
-            >
-              <Tooltip direction="bottom" className="leafletTooltip" sticky={true} >
-                <div>
-                  <h3 style={{ textAlign: 'center' }}>{this.state.districtName} {this.state.provinceName}</h3>
-                  <h4>{VOTES_PER} : {this.state.resultsPercentage} % </h4>
-                  <h4>{VOTES_NUMBER} : {numberWithCommas(this.state.resultsNumber)} votes </h4>
-                </div>
-              </Tooltip>
+              >
+                <Tooltip direction="bottom" className="leafletTooltip" sticky={true} >
+                  <div>
+                    <h3 style={{ textAlign: 'center' }}>{this.state.districtName} {this.state.provinceName}</h3>
+                    <h4>{VOTES_PER} : {this.state.resultsPercentage} % </h4>
+                    <h4>{VOTES_NUMBER} : {numberWithCommas(this.state.resultsNumber)} votes </h4>
+                  </div>
+                </Tooltip>
+              </GeoJSON>
 
-            </GeoJSON>
+              : (this.state.filter == 'perDistrict' ?
 
-            :
-            <GeoJSON
-              key={this.state.partyToSelect + this.props.grades + this.state.filter}
-              data={this.state.shapeProvince}
-              style={this.style.bind(this)}
-              onEachFeature={
-                (feature, layer) => {
-                  layer.on({ mouseover: this.highlightFeature.bind(this) });
-                  layer.on({ mouseout: this.resetFeature.bind(this) });
-                }
-              }
-            >
-              <Tooltip direction="bottom" className="leafletTooltip" sticky={true} >
-                <div>
-                  <h3 style={{ textAlign: 'center' }}>{this.state.districtName} {this.state.provinceName}</h3>
-                  <h4>{VOTES_PER} : {this.state.resultsPercentage} % </h4>
-                  <h4>{VOTES_NUMBER} : {numberWithCommas(this.state.resultsNumber)} votes </h4>
-                </div>
-              </Tooltip>
+                < GeoJSON
+                  key={this.state.partyToSelect + this.props.grades + this.state.filter}
+                  data={this.state.shapeDistrict}
+                  style={this.style.bind(this)}
+                  onEachFeature={
+                    (feature, layer) => {
+                      layer.on({ mouseover: this.highlightFeature.bind(this) });
+                      layer.on({ mouseout: this.resetFeature.bind(this) });
+                    }
+                  }
+                >
+                  <Tooltip direction="bottom" className="leafletTooltip" sticky={true} >
+                    <div>
+                      <h3 style={{ textAlign: 'center' }}>{this.state.districtName} {this.state.provinceName}</h3>
+                      <h4>{VOTES_PER} : {this.state.resultsPercentage} % </h4>
+                      <h4>{VOTES_NUMBER} : {numberWithCommas(this.state.resultsNumber)} votes </h4>
+                    </div>
+                  </Tooltip>
+                </GeoJSON>
+                :
 
-            </GeoJSON>
+                <GeoJSON
+                  key={this.state.partyToSelect + this.props.grades + this.state.filter}
+                  data={this.state.shapeProvince}
+                  style={this.style.bind(this)}
+                  onEachFeature={
+                    (feature, layer) => {
+                      layer.on({ mouseover: this.highlightFeature.bind(this) });
+                      layer.on({ mouseout: this.resetFeature.bind(this) });
+                    }
+                  }
+                >
+                  <Tooltip direction="bottom" className="leafletTooltip" sticky={true} >
+                    <div>
+                      <h3 style={{ textAlign: 'center' }}>{this.state.districtName} {this.state.provinceName}</h3>
+                      <h4>{VOTES_PER} : {this.state.resultsPercentage} % </h4>
+                      <h4>{VOTES_NUMBER} : {numberWithCommas(this.state.resultsNumber)} votes </h4>
+                    </div>
+                  </Tooltip>
+
+                </GeoJSON>
+              )
+
           }
           <GeoJSON
-            key={'b' +this.state.partyToSelect+ this.state.filter}
+            key={'b' + this.state.partyToSelect + this.state.filter}
             data={G_ZIM_PROVINCE_DELIMITATION}
             style={this.styleGovLimiter.bind(this)}
           />
@@ -271,12 +318,17 @@ export default class PartyMap extends Component {
                 <section className='row col-md-12' >
 
                   <div className="md-radio md-radio-inline" style={{ margin: '10px 0' }}>
-                    <input id="3" type="radio" name="g2" value={0} onClick={this.handleRadioFilter.bind(this, 'perDistrict')} checked={this.state.checked[0]} />
+                    <input id="2" type="radio" name="g1" value={0} onClick={this.handleRadioFilter.bind(this, 'perWard')} checked={this.state.checked[0]} />
+                    <label htmlFor="2">{WARD_RES}</label>
+                  </div>
+
+                  <div className="md-radio md-radio-inline" style={{ margin: '10px 0' }}>
+                    <input id="3" type="radio" name="g2" value={1} onClick={this.handleRadioFilter.bind(this, 'perDistrict')} checked={this.state.checked[1]} />
                     <label htmlFor="3">{DISTRICT_RES}</label>
                   </div>
 
                   <div className="md-radio md-radio-inline" style={{ margin: '10px 0' }}>
-                    <input id="4" type="radio" name="g2" value={1} onClick={this.handleRadioFilter.bind(this, 'perProvince')} checked={this.state.checked[1]} />
+                    <input id="4" type="radio" name="g3" value={2} onClick={this.handleRadioFilter.bind(this, 'perProvince')} checked={this.state.checked[2]} />
                     <label htmlFor="4">{PROVINCE_RES}</label>
                   </div>
                 </section>
@@ -310,5 +362,7 @@ export default class PartyMap extends Component {
   }
 }
 const numberWithCommas = (x) => {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  if (x!=undefined) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
 }

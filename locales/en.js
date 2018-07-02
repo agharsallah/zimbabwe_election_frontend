@@ -37,6 +37,7 @@ module.exports = {
         VOTES_PER: 'Votes percentage',
         district_res: 'Results per district',
         province_res: 'Results per province',
+        ward_res: 'Results per ward',
         SEATS_NUMBER: 'Seats number',
         filter_Result: 'Filter result between :',
         filter_Result_Mun: 'Filter result per Mun. Type  :',
