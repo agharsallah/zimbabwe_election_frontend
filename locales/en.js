@@ -43,6 +43,17 @@ module.exports = {
         filter_Result_Mun: 'Filter result per Mun. Type  :',
         control_map: 'Control the map',
         district_name:'District name'
+    },
+    pres13Turnout:{
+        title:'Presidential election voter turnout 2013 '
+    },
+    pres13Invalid:{
+        title:'Invalid votes',
+        highest_invalid:'Highest invalid votes',
+        lowest_invalid:'Lowest invalid votes',
+        total_invalid:'Total invalid votes',
+        VOTES_PER:'Invalid votes percentage ',
+        Votes_Number:'Invalid votes number ',
     }
 
 }

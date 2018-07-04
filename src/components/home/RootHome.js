@@ -66,7 +66,7 @@ export default class RootHome extends Component {
                 <div className="services-content-tab">
                   <div className="content-inner">
                   <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 13' />
-                  <Card img="test.jpg" redirectLink="/pres-res-13" title='Invalid votes' description={DESC_CARD1} ribbon='presidential 13' />
+                  <Card img="parties-res-13.jpg" redirectLink="/pres-invalid-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 13' />
                   <Card img="test.jpg" redirectLink="/pres-res-13" title='other' description={DESC_CARD1} ribbon='other' />
   
                   </div>
