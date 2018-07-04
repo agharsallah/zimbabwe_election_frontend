@@ -25,6 +25,10 @@ export default class RootHome extends Component {
     /* translation Card*/
     const TITLECARD1 = <Translate type='text' content='card.title1' />//Our Visualizations
     const DESC_CARD1 = <Translate type='text' content='card.description1' />//Our Visualizations
+    const TITLECARD2 = <Translate type='text' content='card.title2' />//Our Visualizations
+    const DESC_CARD2 = <Translate type='text' content='card.description2' />//Our Visualizations
+    const TITLECARD3 = <Translate type='text' content='card.title3' />//Our Visualizations
+    const DESC_CARD3 = <Translate type='text' content='card.description3' />//Our Visualizations
 
     return (
       <div>
@@ -65,9 +69,9 @@ export default class RootHome extends Component {
 
                 <div className="services-content-tab">
                   <div className="content-inner">
-                  <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 13' />
-                  <Card img="parties-res-13.jpg" redirectLink="/pres-invalid-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 13' />
-                  <Card img="test.jpg" redirectLink="/pres-res-13" title='other' description={DESC_CARD1} ribbon='other' />
+                  <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 2013' />
+                  <Card img="parties-invalid-13.jpg" redirectLink="/pres-invalid-13" title={TITLECARD2} description={DESC_CARD2} ribbon='presidential 2013' />
+                  <Card img="parties-invalid-13.jpg" redirectLink="/pres-turnout-13" title={TITLECARD3} description={DESC_CARD3} ribbon='presidential 2013' />
   
                   </div>
                 </div>

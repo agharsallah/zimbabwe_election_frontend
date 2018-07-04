@@ -8,7 +8,7 @@ export default class _RootPresInvalid13 extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      gradesDistrict: [0, 2, 3], gradesProvince: [0, 2, 3], gradesWard: [0,2,5]
+      gradesDistrict: [0, 2, 3], gradesProvince: [0, 2, 3], gradesWard: [0,2,3]
     }
   }
 

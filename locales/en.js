@@ -25,8 +25,12 @@ module.exports = {
         readmore: 'Read More',
     },
     card: {
-        title1: 'Presidential results 2013 ',
+        title1: 'Results ',
         description1: 'Desc. here',
+        title2: 'Invalid votes',
+        description2: 'Desc. here',
+        title3: 'Voter turnout',
+        description3: 'Desc. here',
         
     },
     partySheet: {
@@ -54,6 +58,16 @@ module.exports = {
         total_invalid:'Total invalid votes',
         VOTES_PER:'Invalid votes percentage ',
         Votes_Number:'Invalid votes number ',
+    },
+    pres13Turnout:{
+        title:'Voter Turnout ',
+        highest_turnout:'Highest voter turnout',
+        lowest_turnout:'Lowest voter turnout',
+        average:'Average voter turnout',
+        VOTES_PER:'Voters turnout ',
+        VOTES_turn:'Voters turnout',
+        Votes_Number:'Votes number',
+        Registered_Number:'Registered number',
     }
 
 }
