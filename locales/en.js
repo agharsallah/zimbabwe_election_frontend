@@ -68,6 +68,29 @@ module.exports = {
         VOTES_turn:'Voters turnout',
         Votes_Number:'Votes number',
         Registered_Number:'Registered number',
-    }
+    },
+    about:{
+        title:'About ',
+        aboutText1:'2018, Zimbabwe is having it\'s first election after the ruling of Robert Mugabe for 30 years. That\'s why we created Zimbabwe Election Data – created to collect, open, visualize,and analyze election-related data to improve the electoral process. This project is implemented by Democracy International.',
+        aboutText2:' By this project we aim to :',
+        listItem1:'Creating a centralized hub of election-related data, maps, and analysis that facilitate data-driven decision-making to improve the electoral process',
+        listItem2:'Presenting information in a highly accessible way so that stakeholders can measure progress and identify trends from one election cycle to the next.',
+        listItem3:'Providing a meaningful lens through which electoral developments or election observation findings can be contextualized and understood.',
+        osItem1:'QGIS for maps design',
+        osItem2:'Html, React.js and Css for frontend',
+        osItem3:'Leaflet for map visualizations',
+        osTitle:'Open Source',
+        aboutText3:'The tools used to build this site are open source and the project is hosted on',
+        
+    },
+    contact:{
+        title:'Contact Us ',
+        
+    },
+    data:{
+        title:'Raw Data ',
+        
+    },
+    
 
 }

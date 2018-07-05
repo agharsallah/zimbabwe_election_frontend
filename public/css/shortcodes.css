@@ -52,6 +52,12 @@
   * Flat Download
   * Flat Testimonial Style2
 */
+.article-text-style{
+    font-family: Georgia,Times,'Times New Roman',serif;
+    font-size: calc(16.4px + 0.175vw);
+    line-height: calc(1.5em + 0.3333vw);
+    font-weight: 400;
+}
 
 /* Flat Title
 -------------------------------------------------------------- */
@@ -1393,7 +1399,7 @@
 /* Main Services
 -------------------------------------------------------------- */
 .main-services {
-    padding: 98px 0 100px;
+    padding: 55px 0 100px;
 }
 
 .wrap-services-1 {
