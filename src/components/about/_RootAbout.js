@@ -67,9 +67,10 @@ export default class RootAbout extends Component {
                                 <li>{OS_ITEM2}</li>
                                 <li>{OS_ITEM3} </li>
                             </ul>
-
                         </div>
-
+                        <div style={{ marginTop: '10vh', textAlign: 'center', width: '100%' }}>
+                        <a href="http://democracyinternational.com" target='blank' > <img style={{ alignItem: 'center' }} src="/img/home/di.svg" height='125px' width='250px' alt="" /></a>
+                        </div>
                     </div>
                 </section>
 

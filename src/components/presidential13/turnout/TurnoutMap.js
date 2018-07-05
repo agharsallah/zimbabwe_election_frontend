@@ -180,8 +180,8 @@ export default class PartyMap extends Component {
           </Control>
 
           <Control position="topleft"  >
-            <div className="col-lg-12 col-sm-2 col-sm-offset-2 col-lg-offset-1" style={{ height: 'auto' }} >
-              <div className="well MenuShadow SideMenuePosition info-card-font">
+            <div className="col-lg-12 col-sm-2 col-sm-offset-2 col-lg-offset-1"  >
+              <div className="well MenuShadow SideMenuePosition info-card-font" style={{ height: 'auto' }}>
                 <h6 className='center'>{CONTROL}</h6>
 
                 <section className='row col-md-12 '  >

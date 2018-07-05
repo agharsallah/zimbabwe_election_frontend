@@ -71,7 +71,7 @@ export default class RootHome extends Component {
                   <div className="content-inner">
                   <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 2013' />
                   <Card img="parties-invalid-13.jpg" redirectLink="/pres-invalid-13" title={TITLECARD2} description={DESC_CARD2} ribbon='presidential 2013' />
-                  <Card img="parties-invalid-13.jpg" redirectLink="/pres-turnout-13" title={TITLECARD3} description={DESC_CARD3} ribbon='presidential 2013' />
+                  <Card img="parties-turnout-13.jpg" redirectLink="/pres-turnout-13" title={TITLECARD3} description={DESC_CARD3} ribbon='presidential 2013' />
   
                   </div>
                 </div>

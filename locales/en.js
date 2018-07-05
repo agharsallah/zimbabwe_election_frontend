@@ -26,11 +26,11 @@ module.exports = {
     },
     card: {
         title1: 'Results ',
-        description1: 'Desc. here',
+        description1: 'Candidates result of the 2013 presidential election per province, district and ward',
         title2: 'Invalid votes',
-        description2: 'Desc. here',
+        description2: 'Invalid votes of the 2013 presidential election per province, district and ward',
         title3: 'Voter turnout',
-        description3: 'Desc. here',
+        description3: 'Voter turnout of the 2013 presidential election per province',
         
     },
     partySheet: {

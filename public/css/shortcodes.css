@@ -257,10 +257,10 @@
     color: #1e1e1e;
     padding-left: 21px;
     position: relative;
-    background-color: #f7f7f7;
+    background-color: #fff;
     overflow: hidden;
     cursor: pointer;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #fff;
     -webkit-transition: all 0.3s ease-in-out;
       -moz-transition: all 0.3s ease-in-out;
        -ms-transition: all 0.3s ease-in-out;
