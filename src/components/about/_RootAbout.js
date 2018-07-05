@@ -60,7 +60,6 @@ export default class _RootAbout extends Component {
                                         style={{ marginLeft: '10px',marginRight: '10px' }}
                                         label="Github "
                                         labelPosition="before"
-                                        primary={true}
                                         icon={<FontIcon className="fab fa-github" />}
                                     />
                                 </a>
