@@ -5,7 +5,7 @@ import Footer from '../shared/Footer';
 import RaisedButton from 'material-ui/RaisedButton';
 import FontIcon from 'material-ui/FontIcon';
 
-export default class RootAbout extends Component {
+export default class _RootAbout extends Component {
     constructor(props) {
         super(props);
         this.state = {}
@@ -18,8 +18,8 @@ export default class RootAbout extends Component {
         const LIST_ITEM1 = <Translate type='text' content='about.listItem1' />//Creating a centralized hub..
         const LIST_ITEM2 = <Translate type='text' content='about.listItem2' />//Presenting information in a 
         const LIST_ITEM3 = <Translate type='text' content='about.listItem3' />//Providing a meaningful ..
-        const OS_TITLE = <Translate type='text' content='about.osTitle' />//we aim to....
-        const ABOUT_TEXT3 = <Translate type='text' content='about.aboutText3' />//we aim to....
+        const OS_TITLE = <Translate type='text' content='about.osTitle' />//O pen source 
+        const ABOUT_TEXT3 = <Translate type='text' content='about.aboutText3' />//The tools used to build this site are open source and the project is hosted on
         const OS_ITEM1 = <Translate type='text' content='about.osItem1' />//QGIS for maps design 
         const OS_ITEM2 = <Translate type='text' content='about.osItem2' />//Html, React.js and Css for frontend 
         const OS_ITEM3 = <Translate type='text' content='about.osItem3' />//Leaflet for map visualizations 
@@ -51,25 +51,32 @@ export default class RootAbout extends Component {
 
                             <br />
                             <h2>{OS_TITLE}</h2>
-                            <p >{ABOUT_TEXT3}
+                            <div style={{ width: '100%', marginTop: '2vh' }}>
+                                
+                                <span>{ABOUT_TEXT3}</span>
+                                
                                 <a href="https://github.com/hunter-x/zimbabwe_election_frontend" target='blank' >
                                     <RaisedButton
-                                        style={{ marginLeft: '10px' }}
+                                        style={{ marginLeft: '10px',marginRight: '10px' }}
                                         label="Github "
                                         labelPosition="before"
                                         primary={true}
                                         icon={<FontIcon className="fab fa-github" />}
                                     />
                                 </a>
-                            </p>
-                            <ul className='col-md-offset-1' style={{ listStyleType: 'square' }}>
+
+                                <span>, we've used :</span>
+                                
+                            </div>
+
+                            <ul className='col-md-offset-1' style={{ listStyleType: 'square', marginTop: '2vh' }}>
                                 <li>{OS_ITEM1}</li>
                                 <li>{OS_ITEM2}</li>
                                 <li>{OS_ITEM3} </li>
                             </ul>
                         </div>
                         <div style={{ marginTop: '10vh', textAlign: 'center', width: '100%' }}>
-                        <a href="http://democracyinternational.com" target='blank' > <img style={{ alignItem: 'center' }} src="/img/home/di.svg" height='125px' width='250px' alt="" /></a>
+                            <a href="http://democracyinternational.com" target='blank' > <img style={{ alignItem: 'center' }} src="/img/home/di.svg" height='125px' width='250px' alt="" /></a>
                         </div>
                     </div>
                 </section>
