@@ -1,4 +1,5 @@
 ignore
+dist
 # Logs
 logs
 *.log

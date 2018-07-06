@@ -1159,8 +1159,9 @@ ul.flat-social li {
 	margin-bottom: 1px;
 	position: absolute;
     bottom: 0;
-    left: 87%;
-    transform: translate(-50%, -50%);
+    left: 90%;
+	transform: translate(-50%, -50%);
+	font-size: 6px;
 }
 
 .page-title .breadcrumbs li {

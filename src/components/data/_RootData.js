@@ -29,14 +29,14 @@ export default class RootData extends Component {
                                 <p>* Download maps shapefiles : </p>
                                 <div style={{marginBottom:'5vh'}} className='col-md-12' >
                                     <a className='col-md-4' href="https://github.com/hunter-x/Zimbabwe_election_raw_data/blob/master/data/shapes%2Bdata/presidential2013_province.geojson" target='blank' >
-                                        <RaisedButton style={{width:'18vw'}} label="Province Level" labelPosition="before" icon={<FontIcon className="fas fa-download" />} />
+                                        <RaisedButton className='download-button' label="Province Level" labelPosition="before" icon={<FontIcon className="fas fa-download" />} />
                                     </a>
                                     <a className='col-md-4' href="https://github.com/hunter-x/Zimbabwe_election_raw_data/blob/master/data/shapes%2Bdata/presidential2013_district.geojson" target='blank' >
-                                        <RaisedButton style={{width:'18vw'}} label="District Level" labelPosition="before" icon={<FontIcon className="fas fa-download" />} />
+                                        <RaisedButton className='download-button' label="District Level" labelPosition="before" icon={<FontIcon className="fas fa-download" />} />
                                     </a>
 
                                     <a className='col-md-4' href="https://github.com/hunter-x/Zimbabwe_election_raw_data/blob/master/data/shapes%2Bdata/presidential2013_ward.geojson" target='blank' >
-                                        <RaisedButton style={{width:'18vw'}} label="Ward Level" labelPosition="before" icon={<FontIcon className="fas fa-download" />} />
+                                        <RaisedButton className='download-button' label="Ward Level" labelPosition="before" icon={<FontIcon className="fas fa-download" />} />
                                     </a>
 
                                 </div>

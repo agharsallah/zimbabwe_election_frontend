@@ -47,7 +47,7 @@ export default class RootHome extends Component {
             </div>
           </div>
           <div className="attribution">
-            <h6 className="h5-title">AP photo by Ben Curtis </h6>
+            <p className="h5-title">AP photo by Ben Curtis </p>
           </div>
         </div>
 
@@ -56,18 +56,18 @@ export default class RootHome extends Component {
             <div className="row">
               <div className="wrap-services-1">
 
-                <div className="sidebar-services">
+                <div className="col-md-3">
                   <div className="widget-nav-tab">
                     <h3>{OUR_VIS}</h3>
                     <ul className="tab-about" >
                       <li onClick={this.handleActive.bind(this, 0)} className={this.state.activeSideBar[0]} >{ALL}</li>
                       <li onClick={this.handleActive.bind(this, 1)} className={this.state.activeSideBar[1]} >{PRESIDENTIAL}</li>
-                      <li onClick={this.handleActive.bind(this, 2)} className={this.state.activeSideBar[2]} >{OTHER}</li>
+                      {/* <li onClick={this.handleActive.bind(this, 2)} className={this.state.activeSideBar[2]} >{OTHER}</li> */}
                     </ul>
                   </div>
                 </div>
 
-                <div className="services-content-tab">
+                <div className="col-md-9">
                   <div className="content-inner">
                   <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 2013' />
                   <Card img="parties-invalid-13.jpg" redirectLink="/pres-invalid-13" title={TITLECARD2} description={DESC_CARD2} ribbon='presidential 2013' />

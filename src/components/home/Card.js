@@ -11,7 +11,7 @@ export default class Card extends Component {
         const { redirectLink, title, description, ribbon } = this.props
         const READMORE = <Translate type="text" content="home.readmore" />//readmore
         return (
-            <div className="one-half">
+            <div className="col-md-6">
                 <article className="main-post style2">
                     <div className="featured-post" style={{height:'185px'}}>
                         <Link to={redirectLink} >
