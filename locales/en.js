@@ -32,7 +32,7 @@ module.exports = {
         title3: 'Voter turnout',
         description3: 'Voter turnout of the 2013 presidential election per province',
         title4: 'Voter turnout',
-        description3: 'Voter turnout of the 2013 Assembly housse per province',
+        description4: 'Voter turnout of the 2013 Assembly housse per province',
         
     },
     partySheet: {

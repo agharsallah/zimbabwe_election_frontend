@@ -19,7 +19,7 @@ export default class Card extends Component {
                         </Link>
                     </div>
                     <div className="entry-content">
-                        <div className="date">
+                        <div className="date" style={{backgroundColor:this.props.ribbonColor}}>
                             {ribbon}
                         </div>
                         <h3>

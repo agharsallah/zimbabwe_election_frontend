@@ -36,10 +36,10 @@ export default class RootHome extends Component {
     const TITLECARD4 = <Translate type='text' content='card.title4' />//Voter turnout
     const DESC_CARD4 = <Translate type='text' content='card.description4' />//Voter turnout of the 2013 Assembly housse per province
     const ArrayOfVisualizations = [
-      { img: "parties-res-13.jpg", redirectLink: "/pres-res-13", title: TITLECARD1, description: DESC_CARD1, ribbon: 'Presidential 13' },
-      { img: "parties-invalid-13.jpg", redirectLink: "/pres-invalid-13", title: TITLECARD2, description: DESC_CARD2, ribbon: 'Presidential 13' },
-      { img: "parties-turnout-13.jpg", redirectLink: "/pres-turnout-13", title: TITLECARD3, description: DESC_CARD3, ribbon: 'Presidential 13' },
-      { img: "parties-turnout-13.jpg", redirectLink: "/assembly-turnout-13", title: TITLECARD4, description: DESC_CARD4, ribbon: 'Assembly housse 13' }]
+      { img: "parties-res-13.jpg", redirectLink: "/pres-res-13", title: TITLECARD1, description: DESC_CARD1, ribbon: 'Presidential 13',color:'#1CC051' },
+      { img: "parties-invalid-13.jpg", redirectLink: "/pres-invalid-13", title: TITLECARD2, description: DESC_CARD2, ribbon: 'Presidential 13',color:'#1CC051' },
+      { img: "parties-turnout-13.jpg", redirectLink: "/pres-turnout-13", title: TITLECARD3, description: DESC_CARD3, ribbon: 'Presidential 13',color:'#1CC051' },
+      { img: "parties-turnout-13.jpg", redirectLink: "/assembly-turnout-13", title: TITLECARD4, description: DESC_CARD4, ribbon: 'Assembly house 13',color:'#3E96CF' }]
     return (
       <div>
         <Navbar home='active' about='' data='' contact='' />
@@ -70,9 +70,9 @@ export default class RootHome extends Component {
                   <div className="widget-nav-tab">
                     <h3>{OUR_VIS}</h3>
                     <ul className="tab-about" >
-                      <li onClick={this.handleActive.bind(this, 0, 'all')} className={this.state.activeSideBar[0]} >{ALL}</li>
-                      <li onClick={this.handleActive.bind(this, 1, 'pres13')} className={this.state.activeSideBar[1]} >{PRESIDENTIAL}</li>
-                      <li onClick={this.handleActive.bind(this, 2, 'assemb13')} className={this.state.activeSideBar[2]} >{ASSEMBLY_HOUSSE}</li>
+                      <li style={{color:'#000'}} onClick={this.handleActive.bind(this, 0, 'all')} className={this.state.activeSideBar[0]} >{ALL}</li>
+                      <li style={{color:'#1CC051'}} onClick={this.handleActive.bind(this, 1, 'pres13')} className={this.state.activeSideBar[1]} >{PRESIDENTIAL}</li>
+                      <li style={{color:'#3E96CF'}} onClick={this.handleActive.bind(this, 2, 'assemb13')} className={this.state.activeSideBar[2]} >{ASSEMBLY_HOUSSE}</li>
                     </ul>
                   </div>
                 </div>
@@ -82,18 +82,18 @@ export default class RootHome extends Component {
                     {
                       this.state.sideBarSelectedName === 'all' ?
                         ArrayOfVisualizations.map(vizElement => (
-                          <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} />
+                          <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} ribbonColor={vizElement.color} />
                         ))
                         : this.state.sideBarSelectedName === 'pres13' ?
                             ArrayOfVisualizations.map(vizElement => (
                               vizElement.ribbon === 'Presidential 13' ?
-                                <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} />
+                                <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} ribbonColor={vizElement.color} />
                                 : null
                             ))
                         :this.state.sideBarSelectedName === 'assemb13' ?
                             ArrayOfVisualizations.map(vizElement => (
                               vizElement.ribbon === 'Assembly housse 13' ?
-                                <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} />
+                                <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} ribbonColor={vizElement.color} />
                                 : null
                             ))
                         :null
