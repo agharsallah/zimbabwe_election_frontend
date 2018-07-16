@@ -20,7 +20,7 @@ export default class PartyMap extends Component {
   }
 
   componentWillMount() {
-    let qString = `${config.apiUrl}/api/shape/zim_presidential2013_province`;
+    let qString = `${config.apiUrl}/api/shape/zim_assembly_house2013_province`;
     axios({
       method: 'get',
       url: qString,
