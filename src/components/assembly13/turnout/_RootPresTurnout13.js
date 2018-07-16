@@ -2,8 +2,8 @@
 import React, { Component } from 'react';
 import Navbar from '../../shared/Navbar';
 import Translate from 'react-translate-component';
-import InvalidMap from './InvalidMap';
-export default class _RootPresInvalid13 extends Component {
+import TurnoutMap from './TurnoutMap';
+export default class _RootPresTyrnout13 extends Component {
 
   constructor(props) {
     super(props);
@@ -13,12 +13,11 @@ export default class _RootPresInvalid13 extends Component {
   }
 
   render() {
-    const TITLE = <Translate type='text' content='pres13Invalid.title' />//You can select rejected or unacounted from the list
-    const HIGHEST = <Translate type='text' content='pres13Invalid.highest_invalid' />//Highest invalid votes
-    const LOWEST = <Translate type='text' content='pres13Invalid.lowest_invalid' />//Lowest invalid votes
-    const TOTAL = <Translate type='text' content='pres13Invalid.total_invalid' />//Total invalid votes
+    const TITLE = <Translate type='text' content='pres13Turnout.title' />//You can select rejected or unacounted from the list
+    const HIGHEST = <Translate type='text' content='pres13Turnout.highest_turnout' />//Highest turnout votes
+    const LOWEST = <Translate type='text' content='pres13Turnout.lowest_turnout' />//Lowest invalid votes
+    const AVERAGE = <Translate type='text' content='pres13Turnout.average' />//Total invalid votes
 
-     const { gradesDistrict, gradesProvince, gradesWard } = this.state;
     return (
       <div>
         <Navbar home='' about='' data='' contact='' />
@@ -34,23 +33,23 @@ export default class _RootPresInvalid13 extends Component {
                 <div className="row m-space">
                   <div className="col-md-4 col-xs-6 info-card-font">
                     <i className="ion-ios-analytics-outline"></i>
-                    <h3>69,348 - 2% </h3>
-                    <p>{TOTAL}</p>
+                    <h3><br/> 56.8% </h3>
+                    <p>{AVERAGE}</p>
                   </div>
                   <div className="col-md-4 col-xs-6 info-card-font">
                     <i className="ion-ios-lightbulb-outline"></i>
-                    <h3>1,277 - 0.95% <br /> in Bulawayo</h3>
+                    <h3>44% <br/> in  Bulawayo </h3>
                     <p>{LOWEST}</p>
                   </div>
                   <div className="col-md-4 col-xs-6 info-card-font">
                     <i className="ion-ios-camera-outline"></i>
-                    <h3>6,490 - 3.18% <br /> in Matabeleland North</h3>
+                    <h3>70.7% <br/> in Mashonaland Central </h3>
                     <p>{HIGHEST}</p>
                   </div>
                 </div>
               </div>
             </div>
-            <InvalidMap gradesWard={gradesWard} gradesDistrict={gradesDistrict} gradesProvince={gradesProvince}  />
+            <TurnoutMap  />
           </section>
 
         </div>

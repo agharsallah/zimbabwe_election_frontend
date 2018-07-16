@@ -5,9 +5,12 @@ import RootHome from './components/home/RootHome' ;
 import _RootAbout from './components/about/_RootAbout' ;
 import _RootData from './components/data/_RootData' ;
 import _RootContact from './components/contact-us/_RootContact' ;
+/* Presidential */
 import _RootPresRes13 from './components/presidential13/results/_RootPresRes13' ;
 import _RootPresInvalid13 from './components/presidential13/invalid/_RootPresInvalid13' ;
 import _RootPresTurnout13 from './components/presidential13/turnout/_RootPresTurnout13' ;
+/* Assembly */
+import _RootAssemblyTurnout13 from './components/assembly13/turnout/_RootAssemblyTurnout13' ;
 
 import counterpart  from 'counterpart';
 counterpart.registerTranslations('en',require('./../locales/en'));
@@ -24,6 +27,7 @@ export default class App extends Component {
       <Route exact path="/pres-res-13" component={_RootPresRes13} />
       <Route exact path="/pres-invalid-13" component={_RootPresInvalid13} />
       <Route exact path="/pres-turnout-13" component={_RootPresTurnout13} />
+      <Route exact path="/assembly-turnout-13" component={_RootAssemblyTurnout13} />
 
       </Switch>
     );

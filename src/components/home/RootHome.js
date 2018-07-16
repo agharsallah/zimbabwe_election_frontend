@@ -2,18 +2,21 @@ import React, { Component } from 'react';
 import Translate from 'react-translate-component';
 import Navbar from '../shared/Navbar';
 import Footer from '../shared/Footer';
-import Card from './card' ;
+import Card from './card';
 
 export default class RootHome extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeSideBar: ['active', '', ''] }
+    this.state = {
+      activeSideBar: ['active', '', ''],
+      sideBarSelectedName: 'all'
+    }
   }
-  handleActive(value) {
+  handleActive(value, sideBarSelectedName) {
     let activeSideBar = ['', '', ''];
     activeSideBar[value] = 'active';
     console.log(value);
-    this.setState({ activeSideBar });
+    this.setState({ activeSideBar, sideBarSelectedName });
   }
   render() {
     const TITLE = <Translate type='text' content='home.title' />//Zimbabwe election
@@ -21,7 +24,7 @@ export default class RootHome extends Component {
     const OUR_VIS = <Translate type='text' content='sidebar_home.our_vis' />//Our Visualizations
     const ALL = <Translate type='text' content='sidebar_home.all' />//All
     const PRESIDENTIAL = <Translate type='text' content='sidebar_home.presidential' />//Presidential election 
-    const OTHER = <Translate type='text' content='sidebar_home.other' />//Other
+    const ASSEMBLY_HOUSSE = <Translate type='text' content='sidebar_home.assemblyHousse' />//Assembly housse
     /* translation Card*/
     const TITLECARD1 = <Translate type='text' content='card.title1' />//Our Visualizations
     const DESC_CARD1 = <Translate type='text' content='card.description1' />//Our Visualizations
@@ -29,7 +32,14 @@ export default class RootHome extends Component {
     const DESC_CARD2 = <Translate type='text' content='card.description2' />//Our Visualizations
     const TITLECARD3 = <Translate type='text' content='card.title3' />//Our Visualizations
     const DESC_CARD3 = <Translate type='text' content='card.description3' />//Our Visualizations
-
+    /*Assembly housse cards  */
+    const TITLECARD4 = <Translate type='text' content='card.title4' />//Voter turnout
+    const DESC_CARD4 = <Translate type='text' content='card.description4' />//Voter turnout of the 2013 Assembly housse per province
+    const ArrayOfVisualizations = [
+      { img: "parties-res-13.jpg", redirectLink: "/pres-res-13", title: TITLECARD1, description: DESC_CARD1, ribbon: 'Presidential 13' },
+      { img: "parties-invalid-13.jpg", redirectLink: "/pres-invalid-13", title: TITLECARD2, description: DESC_CARD2, ribbon: 'Presidential 13' },
+      { img: "parties-turnout-13.jpg", redirectLink: "/pres-turnout-13", title: TITLECARD3, description: DESC_CARD3, ribbon: 'Presidential 13' },
+      { img: "parties-turnout-13.jpg", redirectLink: "/assembly-turnout-13", title: TITLECARD4, description: DESC_CARD4, ribbon: 'Assembly housse 13' }]
     return (
       <div>
         <Navbar home='active' about='' data='' contact='' />
@@ -60,19 +70,36 @@ export default class RootHome extends Component {
                   <div className="widget-nav-tab">
                     <h3>{OUR_VIS}</h3>
                     <ul className="tab-about" >
-                      <li onClick={this.handleActive.bind(this, 0)} className={this.state.activeSideBar[0]} >{ALL}</li>
-                      <li onClick={this.handleActive.bind(this, 1)} className={this.state.activeSideBar[1]} >{PRESIDENTIAL}</li>
-                      {/* <li onClick={this.handleActive.bind(this, 2)} className={this.state.activeSideBar[2]} >{OTHER}</li> */}
+                      <li onClick={this.handleActive.bind(this, 0, 'all')} className={this.state.activeSideBar[0]} >{ALL}</li>
+                      <li onClick={this.handleActive.bind(this, 1, 'pres13')} className={this.state.activeSideBar[1]} >{PRESIDENTIAL}</li>
+                      <li onClick={this.handleActive.bind(this, 2, 'assemb13')} className={this.state.activeSideBar[2]} >{ASSEMBLY_HOUSSE}</li>
                     </ul>
                   </div>
                 </div>
 
                 <div className="col-md-9">
                   <div className="content-inner">
-                  <Card img="parties-res-13.jpg" redirectLink="/pres-res-13" title={TITLECARD1} description={DESC_CARD1} ribbon='presidential 2013' />
-                  <Card img="parties-invalid-13.jpg" redirectLink="/pres-invalid-13" title={TITLECARD2} description={DESC_CARD2} ribbon='presidential 2013' />
-                  <Card img="parties-turnout-13.jpg" redirectLink="/pres-turnout-13" title={TITLECARD3} description={DESC_CARD3} ribbon='presidential 2013' />
-  
+                    {
+                      this.state.sideBarSelectedName === 'all' ?
+                        ArrayOfVisualizations.map(vizElement => (
+                          <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} />
+                        ))
+                        : this.state.sideBarSelectedName === 'pres13' ?
+                            ArrayOfVisualizations.map(vizElement => (
+                              vizElement.ribbon === 'Presidential 13' ?
+                                <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} />
+                                : null
+                            ))
+                        :this.state.sideBarSelectedName === 'assemb13' ?
+                            ArrayOfVisualizations.map(vizElement => (
+                              vizElement.ribbon === 'Assembly housse 13' ?
+                                <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} />
+                                : null
+                            ))
+                        :null
+                  
+                  }
+
                   </div>
                 </div>
 
@@ -81,7 +108,7 @@ export default class RootHome extends Component {
           </div>
         </section>
 
-        <Footer/>
+        <Footer />
       </div>
     );
   }
