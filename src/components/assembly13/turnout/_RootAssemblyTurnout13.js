@@ -24,7 +24,7 @@ export default class _RootAssemblyTurnout13 extends Component {
           <section >
             <div className="menu-trigger"></div>
             <div className="site-content">
-              <h1 className="site-content__headline">{TITLE} </h1>
+              <h1 className="site-content__headline">{TITLE}- House of Assembly </h1>
             </div>
 
             <div className="light parallax-container center info-card-section" data-overlay="95">

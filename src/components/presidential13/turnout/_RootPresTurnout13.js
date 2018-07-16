@@ -25,7 +25,7 @@ export default class _RootPresTyrnout13 extends Component {
           <section >
             <div className="menu-trigger"></div>
             <div className="site-content">
-              <h1 className="site-content__headline">{TITLE} </h1>
+              <h1 className="site-content__headline">{TITLE} - Presidential </h1>
             </div>
 
             <div className="light parallax-container center info-card-section" data-overlay="95">

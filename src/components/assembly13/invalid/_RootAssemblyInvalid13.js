@@ -3,12 +3,12 @@ import React, { Component } from 'react';
 import Navbar from '../../shared/Navbar';
 import Translate from 'react-translate-component';
 import InvalidMap from './InvalidMap';
-export default class _RootPresInvalid13 extends Component {
+export default class _RootAssemblyInvalid13 extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      gradesDistrict: [0, 2, 3], gradesProvince: [0, 2, 3], gradesWard: [0,2,3]
+      gradesDistrict: [0, 2, 3], gradesProvince: [0, 2, 3]
     }
   }
 
@@ -18,7 +18,7 @@ export default class _RootPresInvalid13 extends Component {
     const LOWEST = <Translate type='text' content='pres13Invalid.lowest_invalid' />//Lowest invalid votes
     const TOTAL = <Translate type='text' content='pres13Invalid.total_invalid' />//Total invalid votes
 
-     const { gradesDistrict, gradesProvince, gradesWard } = this.state;
+     const { gradesDistrict, gradesProvince } = this.state;
     return (
       <div>
         <Navbar home='' about='' data='' contact='' />
@@ -26,7 +26,7 @@ export default class _RootPresInvalid13 extends Component {
           <section >
             <div className="menu-trigger"></div>
             <div className="site-content">
-              <h1 className="site-content__headline">{TITLE} - Presidential </h1>
+              <h1 className="site-content__headline">{TITLE} - House of Assembly    </h1>
             </div>
 
             <div className="light parallax-container center info-card-section" data-overlay="95">
@@ -50,7 +50,7 @@ export default class _RootPresInvalid13 extends Component {
                 </div>
               </div>
             </div>
-            <InvalidMap gradesWard={gradesWard} gradesDistrict={gradesDistrict} gradesProvince={gradesProvince}  />
+            <InvalidMap  gradesDistrict={gradesDistrict} gradesProvince={gradesProvince}  />
           </section>
 
         </div>

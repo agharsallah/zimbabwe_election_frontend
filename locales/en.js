@@ -33,6 +33,9 @@ module.exports = {
         description3: 'Voter turnout of the 2013 presidential election per province',
         title4: 'Voter turnout',
         description4: 'Voter turnout of the 2013 Assembly housse per province',
+        title5: 'Invalid votes',
+        description5: 'Invalid votes of the 2013 Assembly house per province and district',
+
         
     },
     partySheet: {
