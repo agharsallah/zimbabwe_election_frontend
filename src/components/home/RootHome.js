@@ -37,13 +37,17 @@ export default class RootHome extends Component {
     const DESC_CARD4 = <Translate type='text' content='card.description4' />//Voter turnout of the 2013 Assembly housse per province
     const TITLECARD5 = <Translate type='text' content='card.title5' />//Voter turnout
     const DESC_CARD5 = <Translate type='text' content='card.description5' />//Voter turnout of the 2013 Assembly housse per province
+    const TITLECARD6 = <Translate type='text' content='card.title6' />//Voter turnout
+    const DESC_CARD6 = <Translate type='text' content='card.description6' />//Voter turnout of the 2013 Assembly housse per province
 
     const ArrayOfVisualizations = [
       { img: "parties-res-13.jpg", redirectLink: "/pres-res-13", title: TITLECARD1, description: DESC_CARD1, ribbon: 'Presidential 13',color:'#1CC051' },
-      { img: "parties-invalid-13.jpg", redirectLink: "/pres-invalid-13", title: TITLECARD2, description: DESC_CARD2, ribbon: 'Presidential 13',color:'#1CC051' },
+      { img: "house of assembly invalid.jpg", redirectLink: "/assembly-res-13", title: TITLECARD6, description: DESC_CARD6, ribbon: 'House of assembly 13',color:'#3E96CF' },
       { img: "parties-turnout-13.jpg", redirectLink: "/pres-turnout-13", title: TITLECARD3, description: DESC_CARD3, ribbon: 'Presidential 13',color:'#1CC051' },
-     /*  { img: "parties-turnout-13.jpg", redirectLink: "/assembly-turnout-13", title: TITLECARD4, description: DESC_CARD4, ribbon: 'Assembly house 13',color:'#3E96CF' }, */
-      { img: "parties-turnout-13.jpg", redirectLink: "/assembly-invalid-13", title: TITLECARD5, description: DESC_CARD5, ribbon: 'Assembly house 13',color:'#3E96CF' }
+      { img: "house of assembly invalid.jpg", redirectLink: "/assembly-invalid-13", title: TITLECARD5, description: DESC_CARD5, ribbon: 'House of assembly 13',color:'#3E96CF' },
+      { img: "parties-invalid-13.jpg", redirectLink: "/pres-invalid-13", title: TITLECARD2, description: DESC_CARD2, ribbon: 'Presidential 13',color:'#1CC051' },
+      /*  { img: "parties-turnout-13.jpg", redirectLink: "/assembly-turnout-13", title: TITLECARD4, description: DESC_CARD4, ribbon: 'Assembly house 13',color:'#3E96CF' }, */
+ 
     ]
     return (
       <div>
@@ -97,7 +101,7 @@ export default class RootHome extends Component {
                             ))
                         :this.state.sideBarSelectedName === 'assemb13' ?
                             ArrayOfVisualizations.map(vizElement => (
-                              vizElement.ribbon === 'Assembly housse 13' ?
+                              vizElement.ribbon === 'House of assembly 13' ?
                                 <Card img={vizElement.img} redirectLink={vizElement.redirectLink} title={vizElement.title} description={vizElement.description} ribbon={vizElement.ribbon} ribbonColor={vizElement.color} />
                                 : null
                             ))

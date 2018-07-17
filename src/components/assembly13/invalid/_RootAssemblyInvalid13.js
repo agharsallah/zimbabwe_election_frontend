@@ -34,17 +34,17 @@ export default class _RootAssemblyInvalid13 extends Component {
                 <div className="row m-space">
                   <div className="col-md-4 col-xs-6 info-card-font">
                     <i className="ion-ios-analytics-outline"></i>
-                    <h3>69,348 - 2% </h3>
+                    <h3>70,161 - 2% </h3>
                     <p>{TOTAL}</p>
                   </div>
                   <div className="col-md-4 col-xs-6 info-card-font">
                     <i className="ion-ios-lightbulb-outline"></i>
-                    <h3>1,277 - 0.95% <br /> in Bulawayo</h3>
+                    <h3>1,700 - 1.28% <br /> in Bulawayo</h3>
                     <p>{LOWEST}</p>
                   </div>
                   <div className="col-md-4 col-xs-6 info-card-font">
                     <i className="ion-ios-camera-outline"></i>
-                    <h3>6,490 - 3.18% <br /> in Matabeleland North</h3>
+                    <h3>7164 - 3.6% <br /> in Matabeleland North</h3>
                     <p>{HIGHEST}</p>
                   </div>
                 </div>

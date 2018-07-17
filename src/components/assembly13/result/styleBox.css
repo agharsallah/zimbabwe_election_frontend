@@ -1,0 +1,42 @@
+.square {
+    height: 50px;
+    width: 50px;
+    background-color: #555;
+  }
+.grid {
+    margin: 0 auto;
+/*     width: 80vw;
+    max-width: 60vh;
+ */   /*  height: 80vw;
+    max-height: 60vh; */
+    font-size: 1rem;
+}
+.row {
+}
+.box {
+    float:left;
+    background: tomato;
+    margin: 5px;
+    color: white;
+    font-weight: bold;
+    /* flex: 1 0 auto;
+    position: relative; */
+    height: 30px;
+    width: 30px;
+}
+.box:after {
+    content: "";
+    float:left;
+    display: block;
+    padding-top: 100%;
+}
+.box .inner {
+    display: flex;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+}

@@ -12,6 +12,7 @@ import _RootPresTurnout13 from './components/presidential13/turnout/_RootPresTur
 /* Assembly */
 import _RootAssemblyTurnout13 from './components/assembly13/turnout/_RootAssemblyTurnout13' ;
 import _RootAssemblyInvalid13 from './components/assembly13/invalid/_RootAssemblyInvalid13' ;
+import _RootAssemblyRes13 from './components/assembly13/result/_RootAssemblyRes13' ;
 
 import counterpart  from 'counterpart';
 counterpart.registerTranslations('en',require('./../locales/en'));
@@ -28,8 +29,10 @@ export default class App extends Component {
       <Route exact path="/pres-res-13" component={_RootPresRes13} />
       <Route exact path="/pres-invalid-13" component={_RootPresInvalid13} />
       <Route exact path="/pres-turnout-13" component={_RootPresTurnout13} />
+
       <Route exact path="/assembly-turnout-13" component={_RootAssemblyTurnout13} />
       <Route exact path="/assembly-invalid-13" component={_RootAssemblyInvalid13} />
+      <Route exact path="/assembly-res-13" component={_RootAssemblyRes13} />
 
       </Switch>
     );

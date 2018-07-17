@@ -35,6 +35,8 @@ module.exports = {
         description4: 'Voter turnout of the 2013 Assembly housse per province',
         title5: 'Invalid votes',
         description5: 'Invalid votes of the 2013 Assembly house per province and district',
+        title6: 'Results ',
+        description6: 'Result of the 2013 House of assembly per province and district ',
 
         
     },
