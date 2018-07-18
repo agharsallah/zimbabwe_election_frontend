@@ -98,6 +98,20 @@ module.exports = {
         title:'Raw Data ',
         
     },
+    resultsHouse13:{
+        title:'House of Assembly results ',
+        indep:'Independent',
+        mdct:'MDC-T',
+        zanu:'ZANU-PF',
+        select_theme:'Select theme',
+        result_theme:'Result',
+        gender_theme:'Result per gender',
+        province_theme:'Result per Province',
+        deputy_name:'Deputy Name',
+        vote_per:'Votes Percentage',
+        vote_num:'Votes Number',
+        
+    }
     
 
 }

@@ -5,6 +5,7 @@ import './styleBox.css'
 import SeatsSemiCircle from './SeatsSemiCircle';
 import WaffleChart from './WaffleChart';
 import ChartController from './ChartController' ;
+import Footer from '../../shared/Footer';
 
 export default class _RootAssemblyRes13 extends Component {
     constructor(props) {
@@ -15,14 +16,17 @@ export default class _RootAssemblyRes13 extends Component {
     }
 
     render() {
-        const TITLE = <Translate type='text' content='pres13Invalid.title' />//You can select rejected or unacounted from the list
+        const TITLE = <Translate type='text' content='resultsHouse13.title' />//House of Assembly results
+        const INDEP = <Translate type='text' content='resultsHouse13.indep' />//Independent
+        const MDCT = <Translate type='text' content='resultsHouse13.mdct' />//MDC-T
+        const ZANU = <Translate type='text' content='resultsHouse13.zanu' />//ZANU-PF
         return (
             <div>
                 <Navbar home='' about='' data='' contact='' />
                 <div id="content">
                     <div className="menu-trigger"></div>
                     <div className="site-content">
-                        <h1 className="site-content__headline"> House of Assembly results  </h1>
+                        <h1 className="site-content__headline"> {TITLE}  </h1>
                     </div>
                     <div className='col-md-12'>
                         <SeatsSemiCircle />
@@ -32,8 +36,8 @@ export default class _RootAssemblyRes13 extends Component {
                         <div className='col-md-12'>
 
                             <div className="col-md-2 card info-card-font" >
-                                
                                 <ChartController/>
+
                             </div>
 
                             <div className="col-md-10 col-sm-12">
@@ -45,18 +49,21 @@ export default class _RootAssemblyRes13 extends Component {
                     <br />
                     <div className='col-md-12' >
                         <div className='col-md-offset-3'>
-                            <div className="box " style={{ background: '#F7B62C' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>Independent</h3>
+                            <div className="box " style={{ background: '#F7B62C' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>{INDEP}</h3>
                         </div>
                         <div className='col-md-offset-2'>
-                            <div className="box " style={{ background: '#EB4948' }} ></div> <h3 className='col-md-2' style={{ marginTop: '1vh' }}>MDC-T</h3>
+                            <div className="box " style={{ background: '#EB4948' }} ></div> <h3 className='col-md-2' style={{ marginTop: '1vh' }}>{MDCT}</h3>
                         </div>
                         <div className='col-md-offset-2'>
-                            <div className="box " style={{ background: '#7ECF68' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>ZANU-PF</h3>
+                            <div className="box " style={{ background: '#7ECF68' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>{ZANU}</h3>
                         </div>
                     </div>
 
                 </div>
+                <div style={{marginTop:'80px'}}>
+                <Footer/>
 
+                </div>
             </div>
         );
     }

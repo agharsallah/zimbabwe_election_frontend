@@ -7,8 +7,8 @@ const handleScroll=()=>{
     });
 }
 const Footer = ({}) => (
-    <div>
-        <div className="footer-bottom">
+    <div >
+        <div className="footer-bottom" >
             <div className="container">
                 <div className="row">
                     <div className="col-md-12">

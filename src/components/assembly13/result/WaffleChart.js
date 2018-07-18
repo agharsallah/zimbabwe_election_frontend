@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import config from '../../config'
 import axios from 'axios';
+import Translate from 'react-translate-component';
 
 export default class WaffleChart extends Component {
     constructor(props) {
@@ -35,6 +36,10 @@ export default class WaffleChart extends Component {
     }
     render() {
         let colorBox;
+        const DEPUTY_NAME = <Translate type='text' content='resultsHouse13.deputy_name' />//Deputy Name
+        const VOTES_PERCENTAGE = <Translate type='text' content='resultsHouse13.vote_per' />//Votes Percentage
+        const VOTES_NUMBER = <Translate type='text' content='resultsHouse13.vote_num' />//Votes Number
+
 
         return (
             <div className="content-inner">
@@ -48,9 +53,9 @@ export default class WaffleChart extends Component {
                             <div className="inner"></div>
                             <div className="tooltiptext">
                                 <h5 style={{ textAlign: 'center' }}>{constituencyElm.constituency} / {constituencyElm.province}</h5>
-                                <h5 style={{ color: '#FE9187' }}>Deputy Name: <span style={{ color: '#fff' }} > {constituencyElm.winner_name} </span> </h5>
-                                <h5 style={{ color: '#FE9187' }}>Votes Percentage: <span style={{ color: '#fff' }} >  {(parseInt((constituencyElm.winner_votes).replace(/,/g, '')) * 100 / parseInt((constituencyElm.total_votes).replace(/,/g, ''))).toFixed(2) + ' %'} </span> </h5>
-                                <h5 style={{ color: '#FE9187' }}>Votes Number: <span style={{ color: '#fff' }} >  {commaNum((constituencyElm.winner_votes).replace(/,/g, '')) + ' votes'} </span> </h5>
+                                <h5 style={{ color: '#FE9187' }}>{DEPUTY_NAME}: <span style={{ color: '#fff' }} > {constituencyElm.winner_name} </span> </h5>
+                                <h5 style={{ color: '#FE9187' }}>{VOTES_PERCENTAGE}: <span style={{ color: '#fff' }} >  {(parseInt((constituencyElm.winner_votes).replace(/,/g, '')) * 100 / parseInt((constituencyElm.total_votes).replace(/,/g, ''))).toFixed(2) + ' %'} </span> </h5>
+                                <h5 style={{ color: '#FE9187' }}>{VOTES_NUMBER}: <span style={{ color: '#fff' }} >  {commaNum((constituencyElm.winner_votes).replace(/,/g, '')) + ' votes'} </span> </h5>
 
                             </div>
                         </a>
