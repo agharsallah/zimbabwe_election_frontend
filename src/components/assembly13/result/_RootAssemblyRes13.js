@@ -4,17 +4,25 @@ import Translate from 'react-translate-component';
 import './styleBox.css'
 import SeatsSemiCircle from './SeatsSemiCircle';
 import WaffleChart from './WaffleChart';
-import ChartController from './ChartController' ;
+import ChartController from './ChartController';
 import Footer from '../../shared/Footer';
 
 export default class _RootAssemblyRes13 extends Component {
     constructor(props) {
         super(props);
         this.state = {
-           
+            filter: 'result theme',
+            SelecteProvince: 'All'
         }
     }
-
+    getThemeFilterValueFn(filterVal) {
+        console.log(filterVal);
+        this.setState({ filter: filterVal });
+    }
+    getProvinceFilterWaffleFn(SelecteProvince) {
+        console.log(SelecteProvince);
+        this.setState({ SelecteProvince });
+    }
     render() {
         const TITLE = <Translate type='text' content='resultsHouse13.title' />//House of Assembly results
         const INDEP = <Translate type='text' content='resultsHouse13.indep' />//Independent
@@ -28,22 +36,32 @@ export default class _RootAssemblyRes13 extends Component {
                     <div className="site-content">
                         <h1 className="site-content__headline"> {TITLE}  </h1>
                     </div>
-                    <div className='col-md-12'>
-                        <SeatsSemiCircle />
-                    </div>
+
                     <div className="row">
 
                         <div className='col-md-12'>
 
+
                             <div className="col-md-2 card info-card-font" >
-                                <ChartController/>
-
+                                <ChartController
+                                    sendThemeFilterValue={this.getThemeFilterValueFn.bind(this)}
+                                    sendProvinceFilterWaffle={this.getProvinceFilterWaffleFn.bind(this)}
+                                />
                             </div>
+                            <div className='col-md-10'>
+                                <div >
+                                    <SeatsSemiCircle />
+                                </div>
 
-                            <div className="col-md-10 col-sm-12">
-                               <WaffleChart />
+                                {this.state.filter === 'result theme' ?
+                                    <div >
+                                        <WaffleChart
+                                            SelecteProvince={this.state.SelecteProvince}
+                                        />
+                                    </div>
+                                    : null
+                                }
                             </div>
-
                         </div>
                     </div>
                     <br />
@@ -60,8 +78,8 @@ export default class _RootAssemblyRes13 extends Component {
                     </div>
 
                 </div>
-                <div style={{marginTop:'80px'}}>
-                <Footer/>
+                <div style={{ marginTop: '80px' }}>
+                    <Footer />
 
                 </div>
             </div>

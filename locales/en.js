@@ -110,6 +110,7 @@ module.exports = {
         deputy_name:'Deputy Name',
         vote_per:'Votes Percentage',
         vote_num:'Votes Number',
+        pick_province:'Choose a province',
         
     }
     
