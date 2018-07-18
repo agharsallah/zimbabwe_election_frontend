@@ -12,16 +12,29 @@ export default class _RootAssemblyRes13 extends Component {
         super(props);
         this.state = {
             filter: 'result theme',
-            SelecteProvince: 'All'
+            SelecteProvince: 'All',
+            zanu:161,mdct:48,indep:1
         }
     }
+   //this function is sent to the chart controller to get which theme is selected
     getThemeFilterValueFn(filterVal) {
         console.log(filterVal);
         this.setState({ filter: filterVal });
     }
+    //this function is sent to the chart controller to get which province is selected from Selector of province in result theme
     getProvinceFilterWaffleFn(SelecteProvince) {
         console.log(SelecteProvince);
         this.setState({ SelecteProvince });
+    }
+    //this function is sent to waffle to get the count of different parties
+    getPartiesNumCountFn(assembly_house_res13){
+        let zanu = 0, mdct = 0, indep = 0;
+        for (let i = 0; i < assembly_house_res13.length; i++) {
+            let constituencyElm = assembly_house_res13[i];
+            constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ : indep++;
+        }
+        this.setState({zanu, mdct,indep});
+       
     }
     render() {
         const TITLE = <Translate type='text' content='resultsHouse13.title' />//House of Assembly results
@@ -50,13 +63,14 @@ export default class _RootAssemblyRes13 extends Component {
                             </div>
                             <div className='col-md-10'>
                                 <div >
-                                    <SeatsSemiCircle />
+                                    <SeatsSemiCircle zanuSeatsNum={this.state.zanu} mdcSeatsNum={this.state.mdct} indepSeatsNum={this.state.indep} />
                                 </div>
 
                                 {this.state.filter === 'result theme' ?
                                     <div >
                                         <WaffleChart
                                             SelecteProvince={this.state.SelecteProvince}
+                                            sendPartyNumCount={this.getPartiesNumCountFn.bind(this)}
                                         />
                                     </div>
                                     : null

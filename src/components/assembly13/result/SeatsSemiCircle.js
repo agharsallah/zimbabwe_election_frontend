@@ -50,16 +50,17 @@ export default class SeatsSemiCircle extends Component {
                     innerSize: '50%',
                     data: [{
                         name: 'Independent',
-                        y: 1,
+                        y: this.props.indepSeatsNum,
                         color: '#F7B62C'
                     }, {
                         name: 'MDC-T',
-                        y: 48,
+                        y: this.props.mdcSeatsNum,
                         color: '#EB4948'
                     },
+                    
                     {
                         name: 'ZANU-PF',
-                        y: 161,
+                        y: this.props.zanuSeatsNum,
                         color: '#7ECF68'
                     }
                     ]

@@ -8,7 +8,7 @@ export default class WaffleChart extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            shapeIsLoaded: false, assembly_house_res13: [], SelecteProvince: 'All'
+            shapeIsLoaded: false, assembly_house_res13: [], SelecteProvince: 'All',
         }
     }
     componentWillMount() {
@@ -35,21 +35,28 @@ export default class WaffleChart extends Component {
             });
 
     }
+
+
     componentWillReceiveProps(nextProps) {
         //if the province changes we update the data array
+        //we also need the count of each party when province change to update the semi circle
         if (nextProps.SelecteProvince != 'All') {
-        
             let assembly_house_res13 = _.filter(this.state.all_assembly_house_res13, function (o) {
                 if (o.province == nextProps.SelecteProvince) return o;
             });
-            this.setState({ assembly_house_res13 })
-        }else{
-            this.setState({ assembly_house_res13:this.state.all_assembly_house_res13 })
+           
+                this.setState({ assembly_house_res13});
+                console.log(assembly_house_res13);
+                //send the count to the _root to push it afterward to the semipie
+                nextProps.sendPartyNumCount(assembly_house_res13);
+
+
+        } else {
+            
+            this.setState({ assembly_house_res13: this.state.all_assembly_house_res13 });
+
+            nextProps.sendPartyNumCount(this.state.all_assembly_house_res13);
         }
-        
-
-
-
     }
     /* filter by province function */
 
