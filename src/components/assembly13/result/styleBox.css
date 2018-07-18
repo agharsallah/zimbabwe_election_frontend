@@ -1,3 +1,7 @@
+.subheaderHover{
+    font: 300 20px/29px "Poppins", sans-serif!important;
+    color: #5BC0BE!important;
+}
 .tooltipRectangle {
     position: relative;
     display: inline-block;

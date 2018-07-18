@@ -6,9 +6,9 @@ export default class SeatsSemiCircle extends Component {
         this.state = { option: {} }
     }
     componentWillReceiveProps(nextProps) {
-        let seatsSum=0,zanu= 161, mdct= 48, indep= 1;
-        nextProps.SelecteProvince!='All'?(seatsSum=nextProps.indepSeatsNum +nextProps.mdcSeatsNum + nextProps.zanuSeatsNum,zanu= nextProps.mdcSeatsNum, mdct= nextProps.zanuSeatsNum, indep= nextProps.indepSeatsNum):(seatsSum=210,zanu= 161, mdct= 48, indep= 1)
-        
+        let seatsSum = 0, zanu = 161, mdct = 48, indep = 1;
+        nextProps.SelecteProvince != 'All' ? (seatsSum = nextProps.indepSeatsNum + nextProps.mdcSeatsNum + nextProps.zanuSeatsNum, zanu = nextProps.zanuSeatsNum, mdct = nextProps.mdcSeatsNum, indep = nextProps.indepSeatsNum) : (seatsSum = 210, zanu = 161, mdct = 48, indep = 1)
+
         this.setState({
             options: {
                 chart: {
@@ -18,7 +18,7 @@ export default class SeatsSemiCircle extends Component {
                 },
                 credits: false,
                 title: {
-                    text: seatsSum+' seats',
+                    text: seatsSum + ' seats',
                     align: 'center',
                     verticalAlign: 'middle',
                     y: 40
@@ -63,7 +63,7 @@ export default class SeatsSemiCircle extends Component {
 
                     {
                         name: 'ZANU-PF',
-                        y:zanu,
+                        y: zanu,
                         color: '#7ECF68'
                     }
                     ]

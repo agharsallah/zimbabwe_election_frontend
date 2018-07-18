@@ -36,7 +36,7 @@ module.exports = {
         title5: 'Invalid votes',
         description5: 'Invalid votes of the 2013 House of Assembly per province and district',
         title6: 'Results ',
-        description6: 'Result of the 2013 House of assembly per province and district ',
+        description6: 'Result of the 2013 House of Assembly per province and district ',
 
         
     },
@@ -105,12 +105,13 @@ module.exports = {
         zanu:'ZANU-PF',
         select_theme:'Select theme',
         result_theme:'Result',
-        gender_theme:'Result per gender',
+        gender_theme:'Result per Gender',
         province_theme:'Result per Province',
         deputy_name:'Deputy Name',
         vote_per:'Votes Percentage',
         vote_num:'Votes Number',
         pick_province:'Choose a province',
+        pick_gender:'Choose a Gender',
         
     }
     
