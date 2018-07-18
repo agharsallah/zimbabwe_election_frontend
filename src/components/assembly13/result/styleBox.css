@@ -9,7 +9,7 @@
     background-color: rgba(0, 0, 0, 0.82);;
     color: #fff;
     border-radius: 6px;
-    padding: 5px 3px;
+    padding: 5px 0px 5px 7px ;
     /* Position the tooltipRectangle */
     position: absolute;
     z-index: 1;

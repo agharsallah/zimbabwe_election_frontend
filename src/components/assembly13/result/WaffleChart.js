@@ -1,0 +1,67 @@
+import React, { Component } from 'react';
+import config from '../../config'
+import axios from 'axios';
+
+export default class WaffleChart extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            shapeIsLoaded: false, assembly_house_res13: []
+        }
+    }
+    componentWillMount() {
+
+        let qString = `${config.apiUrl}/api/shape/zim_assemblyhouse_res_13`;
+        console.log(qString);
+        axios({
+            method: 'get',
+            url: qString,
+            headers: {
+                'name': 'Isie',
+                'password': 'Isie@ndDi',
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+
+        })
+            .then(response => {
+                console.log(response);
+                this.setState({ assembly_house_res13: JSON.parse(response.data.data), shapeIsLoaded: true });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+    render() {
+        let colorBox;
+
+        return (
+            <div className="content-inner">
+            {
+                this.state.assembly_house_res13.map(function (constituencyElm) {
+                    constituencyElm.party_winner == 'mdc_t' ? colorBox = '#EB4948' : constituencyElm.party_winner == 'indep' ? colorBox = '#F7B62C' : colorBox = '#7ECF68';
+                    return (
+                        <a key={constituencyElm.winner_name}
+
+                            className="box col-md-1 tooltipRectangle" style={{ background: colorBox }} >
+                            <div className="inner"></div>
+                            <div className="tooltiptext">
+                                <h5 style={{ textAlign: 'center' }}>{constituencyElm.constituency} / {constituencyElm.province}</h5>
+                                <h5 style={{ color: '#FE9187' }}>Deputy Name: <span style={{ color: '#fff' }} > {constituencyElm.winner_name} </span> </h5>
+                                <h5 style={{ color: '#FE9187' }}>Votes Percentage: <span style={{ color: '#fff' }} >  {(parseInt((constituencyElm.winner_votes).replace(/,/g, '')) * 100 / parseInt((constituencyElm.total_votes).replace(/,/g, ''))).toFixed(2) + ' %'} </span> </h5>
+                                <h5 style={{ color: '#FE9187' }}>Votes Number: <span style={{ color: '#fff' }} >  {commaNum((constituencyElm.winner_votes).replace(/,/g, '')) + ' votes'} </span> </h5>
+
+                            </div>
+                        </a>
+                    )
+                })
+            }
+        </div>
+        );
+    }
+}
+
+const commaNum = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
