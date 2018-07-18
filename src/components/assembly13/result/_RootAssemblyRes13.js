@@ -82,7 +82,7 @@ class _RootAssemblyRes13 extends Component {
                             <div className="box " style={{ background: '#F7B62C' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>Independent</h3>
                         </div>
                         <div className='col-md-offset-2'>
-                            <div className="box " style={{ background: '#EB4948' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>MDC-T</h3>
+                            <div className="box " style={{ background: '#EB4948' }} ></div> <h3 className='col-md-2' style={{ marginTop: '1vh' }}>MDC-T</h3>
                         </div>
                         <div className='col-md-offset-2'>
                             <div className="box " style={{ background: '#7ECF68' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>ZANU-PF</h3>

@@ -11,7 +11,7 @@ export default class SeatsSemiCircle extends Component {
                 chart: {
                     backgroundColor: 'rgba(255, 255, 255, 0.0)',
                     spacingTop: 1,
-                    spacingBottom: 0
+                    spacingBottom: 1,
                 },
                 credits: false,
                 title: {
@@ -38,6 +38,7 @@ export default class SeatsSemiCircle extends Component {
                                 return this.point.name + ' : ' + this.y + 'seat';
                             }
                         },
+                        size: 400,
                         startAngle: -90,
                         endAngle: 90,
                         center: ['50%', '75%']
@@ -71,7 +72,7 @@ export default class SeatsSemiCircle extends Component {
     render() {
         return (
             <div className='col-md-12' >
-                <HighchartInit options={this.state.options} />
+                <HighchartInit options={this.state.options} styles={{height:'350px'}} />
             </div>
         );
     }
