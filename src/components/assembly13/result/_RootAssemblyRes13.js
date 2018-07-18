@@ -4,9 +4,10 @@ import Translate from 'react-translate-component';
 import './styleBox.css'
 import config from '../../config'
 import axios from 'axios';
-import SeatsSemiCircle from './SeatsSemiCircle' ;
+import SeatsSemiCircle from './SeatsSemiCircle';
+import ReactTooltip from 'react-tooltip'
 
-class _RootAssemblyRes13 extends Component {
+export default class _RootAssemblyRes13 extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -49,10 +50,10 @@ class _RootAssemblyRes13 extends Component {
                         <h1 className="site-content__headline"> House of Assembly results  </h1>
                     </div>
                     <div className='col-md-12'>
-                    <SeatsSemiCircle/>
+                        <SeatsSemiCircle />
                     </div>
                     <div className="row">
-                   
+
                         <div className='col-md-12'>
 
                             <div className="col-md-2 card info-card-font" >
@@ -65,10 +66,20 @@ class _RootAssemblyRes13 extends Component {
                                     {
                                         this.state.assembly_house_res13.map(function (constituencyElm) {
                                             constituencyElm.party_winner == 'mdc_t' ? colorBox = '#EB4948' : constituencyElm.party_winner == 'indep' ? colorBox = '#F7B62C' : colorBox = '#7ECF68';
-                                            return (<div key={constituencyElm.winner_name}
-                                                className="box col-md-1 " style={{ background: colorBox }} >
-                                                <div className="inner"></div>
-                                            </div>)
+                                            return (
+                                                <a key={constituencyElm.winner_name}
+
+                                                    className="box col-md-1 tooltipRectangle" style={{ background: colorBox }} >
+                                                    <div className="inner"></div>
+                                                    <div className="tooltiptext">
+                                                        <h5 style={{ textAlign: 'center' }}>{constituencyElm.constituency} / {constituencyElm.province}</h5>
+                                                        <h5 style={{ color: '#FE9187' }}>Deputy Name: <span style={{ color: '#fff' }} > {constituencyElm.winner_name} </span> </h5>
+                                                        <h5 style={{ color: '#FE9187' }}>Votes Percentage: <span style={{ color: '#fff' }} >  {(parseInt((constituencyElm.winner_votes).replace(/,/g, '')) * 100 / parseInt((constituencyElm.total_votes).replace(/,/g, ''))).toFixed(2) + ' %'} </span> </h5>
+                                                        <h5 style={{ color: '#FE9187' }}>Votes Number: <span style={{ color: '#fff' }} >  {commaNum((constituencyElm.winner_votes).replace(/,/g, '')) + ' votes'} </span> </h5>
+
+                                                    </div>
+                                                </a>
+                                            )
                                         })
                                     }
                                 </div>
@@ -96,4 +107,6 @@ class _RootAssemblyRes13 extends Component {
     }
 }
 
-export default _RootAssemblyRes13;
+const commaNum = (x) => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
