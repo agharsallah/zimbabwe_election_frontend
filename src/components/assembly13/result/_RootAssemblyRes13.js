@@ -6,17 +6,42 @@ import SeatsSemiCircle from './SeatsSemiCircle';
 import WaffleChart from './WaffleChart';
 import ChartController from './ChartController';
 import Footer from '../../shared/Footer';
-
+import config from '../../config'
+import axios from 'axios';
 export default class _RootAssemblyRes13 extends Component {
     constructor(props) {
         super(props);
         this.state = {
             filter: 'result theme',
             SelecteProvince: 'All',
-            zanu:161,mdct:48,indep:1
+            zanu: 161, mdct: 48, indep: 1, assembly_house_res13: [], all_assembly_house_res13: []
         }
     }
-   //this function is sent to the chart controller to get which theme is selected
+    componentWillMount() {
+
+        let qString = `${config.apiUrl}/api/shape/zim_assemblyhouse_res_13`;
+        console.log(qString);
+        axios({
+            method: 'get',
+            url: qString,
+            headers: {
+                'name': 'Isie',
+                'password': 'Isie@ndDi',
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+
+        })
+            .then(response => {
+                console.log(response);
+                this.setState({ assembly_house_res13: JSON.parse(response.data.data), all_assembly_house_res13: JSON.parse(response.data.data), shapeIsLoaded: true });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    }
+    //this function is sent to the chart controller to get which theme is selected
     getThemeFilterValueFn(filterVal) {
         console.log(filterVal);
         this.setState({ filter: filterVal });
@@ -26,15 +51,28 @@ export default class _RootAssemblyRes13 extends Component {
         console.log(SelecteProvince);
         this.setState({ SelecteProvince });
     }
-    //this function is sent to waffle to get the count of different parties
-    getPartiesNumCountFn(assembly_house_res13){
-        let zanu = 0, mdct = 0, indep = 0;
+    //this function is sent to chart controller to get the count of different parties
+    getPartiesNumCountFn(assembly_house_res13) {
+        /* if (this.state.SelecteProvince!='All') { */
+            let zanu = 0, mdct = 0, indep = 0;
         for (let i = 0; i < assembly_house_res13.length; i++) {
             let constituencyElm = assembly_house_res13[i];
             constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ : indep++;
         }
-        this.setState({zanu, mdct,indep});
-       
+        console.log(zanu, mdct, indep);
+        this.setState({assembly_house_res13, zanu, mdct, indep });
+        /* else{
+
+            let zanu = 0, mdct = 0, indep = 0,all_assembly_house_res13=this.state.all_assembly_house_res13;
+            for (let i = 0; i < all_assembly_house_res13.length; i++) {
+                let constituencyElm = all_assembly_house_res13[i];
+                constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ : indep++;
+            }
+            console.log(zanu, mdct, indep);
+            this.setState({assembly_house_res13:all_assembly_house_res13, zanu, mdct, indep });
+        } */
+        
+
     }
     render() {
         const TITLE = <Translate type='text' content='resultsHouse13.title' />//House of Assembly results
@@ -54,23 +92,33 @@ export default class _RootAssemblyRes13 extends Component {
 
                         <div className='col-md-12'>
 
-
                             <div className="col-md-2 card info-card-font" >
                                 <ChartController
                                     sendThemeFilterValue={this.getThemeFilterValueFn.bind(this)}
                                     sendProvinceFilterWaffle={this.getProvinceFilterWaffleFn.bind(this)}
+                                    sendPartyNumCount={this.getPartiesNumCountFn.bind(this)}
+
+                                    assembly_house_res13={this.state.assembly_house_res13}
+                                    all_assembly_house_res13={this.state.all_assembly_house_res13}
+
                                 />
                             </div>
                             <div className='col-md-10'>
                                 <div >
-                                    <SeatsSemiCircle zanuSeatsNum={this.state.zanu} mdcSeatsNum={this.state.mdct} indepSeatsNum={this.state.indep} />
+                                    <SeatsSemiCircle 
+                                        zanuSeatsNum={this.state.zanu}
+                                        mdcSeatsNum={this.state.mdct}
+                                        indepSeatsNum={this.state.indep} 
+                                        SelecteProvince={this.state.SelecteProvince}
+                                    />
                                 </div>
 
                                 {this.state.filter === 'result theme' ?
                                     <div >
                                         <WaffleChart
                                             SelecteProvince={this.state.SelecteProvince}
-                                            sendPartyNumCount={this.getPartiesNumCountFn.bind(this)}
+                                            assembly_house_res13={this.state.assembly_house_res13}
+                                            all_assembly_house_res13={this.state.all_assembly_house_res13}
                                         />
                                     </div>
                                     : null

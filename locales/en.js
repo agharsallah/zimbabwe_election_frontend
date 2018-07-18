@@ -13,7 +13,7 @@ module.exports = {
         our_vis:'Visualizations',
         all:'All',
         presidential:'Presidential election',
-        assemblyHousse:'Assembly housse',
+        assemblyHousse:'House of Assembly',
 
     },
     map:{
@@ -32,9 +32,9 @@ module.exports = {
         title3: 'Voter turnout',
         description3: 'Voter turnout of the 2013 presidential election per province',
         title4: 'Voter turnout',
-        description4: 'Voter turnout of the 2013 Assembly housse per province',
+        description4: 'Voter turnout of the 2013 House of Assembly per province',
         title5: 'Invalid votes',
-        description5: 'Invalid votes of the 2013 Assembly house per province and district',
+        description5: 'Invalid votes of the 2013 House of Assembly per province and district',
         title6: 'Results ',
         description6: 'Result of the 2013 House of assembly per province and district ',
 
