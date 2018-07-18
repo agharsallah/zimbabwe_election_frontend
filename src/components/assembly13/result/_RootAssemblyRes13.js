@@ -17,7 +17,9 @@ export default class _RootAssemblyRes13 extends Component {
             filter: 'result theme',
             SelecteProvince: 'All',
             subFilterGender: 'all gender',
-            zanu: 161, mdct: 48, indep: 1, assembly_house_res13: [], all_assembly_house_res13: []
+            zanu: 161, mdct: 48, indep: 1, assembly_house_res13: [], all_assembly_house_res13: [],
+            minMaxObj:{minFilter:0,maxFilter:100},activeFilter:'none'
+
         }
     }
     componentWillMount() {
@@ -60,7 +62,7 @@ export default class _RootAssemblyRes13 extends Component {
         let zanu = 0, mdct = 0, indep = 0;
         for (let i = 0; i < assembly_house_res13.length; i++) {
             let constituencyElm = assembly_house_res13[i];
-            constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ :constituencyElm.party_winner == 'indep' ? indep++:null;
+            constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ : constituencyElm.party_winner == 'indep' ? indep++ : null;
         }
         console.log(zanu, mdct, indep);
         this.setState({ assembly_house_res13, zanu, mdct, indep });
@@ -76,6 +78,13 @@ export default class _RootAssemblyRes13 extends Component {
     getGenderArrayFn(assembly_house_res13_per_gender) {
         this.setState({ assembly_house_res13: assembly_house_res13_per_gender });
     }
+
+    getVotePerFn(minMaxObj) {
+
+        console.log('minMaxObj', minMaxObj);
+        this.setState({minMaxObj,activeFilter:'percentage filter'});
+    }
+
     render() {
         const TITLE = <Translate type='text' content='resultsHouse13.title' />//House of Assembly results
         const INDEP = <Translate type='text' content='resultsHouse13.indep' />//Independent
@@ -105,6 +114,8 @@ export default class _RootAssemblyRes13 extends Component {
 
                                     sendGenderFilterValue={this.getGenderFilterValueFn.bind(this)}
                                     sendGenderArray={this.getGenderArrayFn.bind(this)}
+
+                                    sendVotePercObject={this.getVotePerFn.bind(this)}
                                 />
                             </div>
                             <div className='col-md-10'>
@@ -125,9 +136,12 @@ export default class _RootAssemblyRes13 extends Component {
                                             assembly_house_res13={this.state.assembly_house_res13}
                                             all_assembly_house_res13={this.state.all_assembly_house_res13}
                                             subFilterGender={this.state.subFilterGender}
+
+                                            minMaxObj={this.state.minMaxObj}
+                                            activeFilter={this.state.activeFilter}
                                         />
                                         <br />
-                                        <div className='col-md-12' style={{marginTop:'20px'}} >
+                                        <div className='col-md-12' style={{ marginTop: '20px' }} >
                                             <div className='col-md-offset-3'>
                                                 <div className="box " style={{ background: '#F7B62C' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>{INDEP}</h3>
                                             </div>
@@ -153,8 +167,8 @@ export default class _RootAssemblyRes13 extends Component {
                                                 all_assembly_house_res13={this.state.all_assembly_house_res13}
                                                 subFilterGender={this.state.subFilterGender}
                                             />
-                                           
-                                            <div className='col-md-12' style={{marginTop:'20px'}} >
+
+                                            <div className='col-md-12' style={{ marginTop: '20px' }} >
                                                 <div className='col-md-offset-3'>
                                                     <div className="box " style={{ background: '#FC0F3A' }} ></div> <h3 className='col-md-3' style={{ marginTop: '1vh' }}>female</h3>
                                                 </div>

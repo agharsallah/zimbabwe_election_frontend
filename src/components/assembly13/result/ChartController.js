@@ -10,7 +10,9 @@ export default class ChartController extends Component {
             shapeIsLoaded: false, SelecteProvince: 'All',
             filter: 'result theme',
             SelecteProvince: 'All',
-            subFilterGender: 'all gender'
+            subFilterGender: 'all gender',
+            minFilter:0,
+maxFilter:100,
         }
     }
 
@@ -90,6 +92,14 @@ export default class ChartController extends Component {
             this.props.sendGenderArray(this.props.all_assembly_house_res13);
         }
     }
+    handleMinFilter(e){
+    this.setState({ minFilter: parseInt(e.target.value) });
+    this.props.sendVotePercObject({minFilter:parseInt(e.target.value),maxFilter:this.state.maxFilter})
+    }
+    handleMaxFilter(e){
+        this.setState({ maxFilter: parseInt(e.target.value)});
+        this.props.sendVotePercObject({minFilter:this.state.minFilter,maxFilter:parseInt(e.target.value)})
+    }
     render() {
         const SELECT_THEME = <Translate type='text' content='resultsHouse13.select_theme' />//Select theme
         const RESULT_THEME = <Translate type='text' content='resultsHouse13.result_theme' />//Result
@@ -139,21 +149,29 @@ export default class ChartController extends Component {
                                     <option value="Midlands"> Midlands</option>
                                 </select>
                             </div>
+                            <hr/>
+                            <section className='row col-md-12 ' style={{marginBottom:'25px'}} >
+                            <h4 className="subheaderTitle">Filter per vote perc. </h4>
+                                <input type="number" onChange={this.handleMinFilter.bind(this)} value={this.state.minFilter} min={0} className='filterResultInput' />%
+                                &nbsp;&nbsp; <span style={{ color: 'red' }}> -</span> &nbsp;
+                            <input type="number" onChange={this.handleMaxFilter.bind(this)} value={this.state.maxFilter} min={1} className='filterResultInput' />%
+                            </section>
+
                         </div>)
-                        :this.state.filter == 'per gender theme'?
-                        <div>
-                            <h4 className="subheaderTitle">{PICK_GENDER} </h4>
-                            <div className='form-group' controlId="typeOfAssoc" onChange={this.handleGenderSelection.bind(this)}  >
-                                <select className='form-control' componentClass="select" placeholder="All" value={this.state.subFilterGender} >
-                                    <option value="" disabled >Select</option>
-                                    <option value="all gender">All</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female </option>
-                                </select>
+                        : this.state.filter == 'per gender theme' ?
+                            <div>
+                                <h4 className="subheaderTitle">{PICK_GENDER} </h4>
+                                <div className='form-group' controlId="typeOfAssoc" onChange={this.handleGenderSelection.bind(this)}  >
+                                    <select className='form-control' componentClass="select" placeholder="All" value={this.state.subFilterGender} >
+                                        <option value="" disabled >Select</option>
+                                        <option value="all gender">All</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female </option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                        :
-                        null
+                            :
+                            null
                     }
                 </section>
             </div>
