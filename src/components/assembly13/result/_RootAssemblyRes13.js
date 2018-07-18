@@ -60,7 +60,7 @@ export default class _RootAssemblyRes13 extends Component {
         let zanu = 0, mdct = 0, indep = 0;
         for (let i = 0; i < assembly_house_res13.length; i++) {
             let constituencyElm = assembly_house_res13[i];
-            constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ : indep++;
+            constituencyElm.party_winner == 'zanu' ? zanu++ : constituencyElm.party_winner == 'mdc_t' ? mdct++ :constituencyElm.party_winner == 'indep' ? indep++:null;
         }
         console.log(zanu, mdct, indep);
         this.setState({ assembly_house_res13, zanu, mdct, indep });
